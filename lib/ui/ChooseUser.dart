@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import '../DB/Add.dart';
 import '../DB/User.dart';
 
+import '../main.dart';
 import '../ui/CreateUser1.dart';
 import '../ui/Obligation_allergy.dart';
+import '../ui/Another_ingredient.dart';
 import '../ui/ImageLoaderSelect.dart';
 import '../Data/AllObligationData.dart';
 import '../Data/AllRecommendationData.dart';
@@ -291,14 +293,26 @@ class ChooseUser_Page extends State<StateChooseUser>{
                                         _selectAdd();
                                         verifications.instance.selectName("スキップが押された");
                                       });
-                                      Future.delayed(const Duration (seconds: 1)).then((_){
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(builder: (context){
-                                            return  StateObligation_allergy(PageFlag: 'ChooseUser');
-                                          }),
-                                        );
-                                        aad.AllResetAnother();
-                                      });
+
+                                      if(Home_Page.flagCategory == 'food'){
+                                        Future.delayed(const Duration (seconds: 1)).then((_){
+                                          Navigator.of(context).push(
+                                            MaterialPageRoute(builder: (context){
+                                              return  StateObligation_allergy(PageFlag: 'ChooseUser');
+                                            }),
+                                          );
+                                          aad.AllResetAnother();
+                                        });
+                                      }else{
+                                        Future.delayed(const Duration (seconds: 1)).then((_){
+                                          Navigator.of(context).push(
+                                            MaterialPageRoute(builder: (context){
+                                              return  StateAnother_ingredient(PageFlag: 'ChooseUser', PageCount: 1);
+                                            }),
+                                          );
+                                          aad.AllResetAnother();
+                                        });
+                                      }
                                     },
                                   )
                               ),

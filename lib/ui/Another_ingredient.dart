@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../DB/Add.dart';
 
+import '../main.dart';
 import '../ui/AddAnotherIngredient.dart';
 import '../ui/ImageLoaderSelect.dart';
 import '../Data/AllObligationData.dart';
@@ -278,15 +279,19 @@ class Another_ingredient extends State<StateAnother_ingredient>{
 
                                     }else if(widget.PageFlag == 'CreateUser'){
                                       Navigator.of(context).pop();
-                                    }else if(widget.PageFlag == 'ChooseUser' || widget.PageFlag == 'SettingUser'){
+                                    }else if(widget.PageFlag == 'SettingUser'){
                                       debugPrint(widget.PageCount.toString());
                                       for(int n = 0 ; n <= widget.PageCount; n++){
                                         Navigator.of(context).pop();
                                       }
                                     }
-                                    aod.HanteiObligation();
-                                    ard.HanteiRecommendation();
-                                    aad.HanteiAnother();
+                                    if(Home_Page.flagCategory == 'food'){
+                                      aod.HanteiObligation();
+                                      ard.HanteiRecommendation();
+                                      aad.HanteiAnother();
+                                    }else{
+                                      aad.HanteiAnother();
+                                    }
                                   },
                                   child: const Text('決定',style: TextStyle(
                                     fontSize: 23,

@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../DB/List.dart';
 
+import '../main.dart';
 import '../ui/Obligation_allergy.dart';
+import '../ui/Another_ingredient.dart';
 import '../Data/AllAnotherData.dart';
 import '../Data/AllObligationData.dart';
 import '../Data/AllRecommendationData.dart';
 import '../component/AppbarComp.dart';
+
 
 class StateSettingAllergy extends StatefulWidget{
   final String UserName;
@@ -262,16 +265,27 @@ class SettingAllergy extends State<StateSettingAllergy>{
                                   ),
                                   child:const Text('変更',style:TextStyle(fontSize:27,fontWeight: FontWeight.bold,color: Colors.white)),
                                   onPressed:(){
-                                    aod.valueChangeBool1();
-                                    ard.valueChangeBool2();
-                                    aad.valueChangeBool3();
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (context){
-                                          return StateObligation_allergy(PageFlag: 'SettingUser');
-                                        })
-                                    ).then((value){
-                                      setState(() {});
-                                    });
+                                    if(Home_Page.flagCategory == 'food'){
+                                      aod.valueChangeBool1();
+                                      ard.valueChangeBool2();
+                                      aad.valueChangeBool3();
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(builder: (context){
+                                            return StateObligation_allergy(PageFlag: 'SettingUser');
+                                          })
+                                      ).then((value){
+                                        setState(() {});
+                                      });
+                                    }else{
+                                      aad.valueChangeBool3();
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(builder: (context){
+                                            return StateAnother_ingredient(PageFlag: 'SettingUser', PageCount: 0,);
+                                          })
+                                      ).then((value){
+                                        setState(() {});
+                                      });
+                                    }
                                   }
                               )
                           ),

@@ -185,6 +185,9 @@ class UserSettings2 extends State<StateUserSettings2> {
                                 aod.valueCheckClear();
                                 ard.valueCheckClear2();
                                 aad.valueCheckClear3();
+                                aod.AllResetObligation();
+                                ard.AllResetRecommendation();
+                                aad.AllResetAnother();
                                 if(Home_Page.flagCategory == 'food'){
                                   aod.setValueCheck(DBfood.Gimulist);
                                   ard.setValueCheck2(DBfood.Suilist);
