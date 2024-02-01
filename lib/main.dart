@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 import 'DB/Add.dart';
 import 'DB/User.dart';
@@ -55,8 +56,70 @@ class Home_Page_State extends StatefulWidget{
 }
 
 class Home_Page extends State<Home_Page_State>{
+
   static String flagCategory = '';
+  double _value = 0.0;
   AllAnotherData aad = AllAnotherData();
+
+/*
+  @override
+  void initState(){
+    debugPrint('initStateにきた');
+    super.initState();
+    const timeout = Duration(milliseconds: 100);
+    Timer.periodic(timeout, (Timer t) {
+      setState(() {
+        debugPrint('とおった？？');
+        _value = _value+0.1;
+        if(_value > 1){
+          //_value = 0;
+        }
+      });
+    });
+
+  }
+
+ */
+
+
+  /*
+  void StartTimer(){
+    Timer.periodic(Duration(milliseconds: 300), (Timer timer) {
+
+        debugPrint('とおったの');
+        _value = _value + 0.1;
+        debugPrint(_value.toString());
+        if(_value > 1){
+          //_value = 0;
+          timer.cancel();
+        }
+        setState(() {});
+
+    });
+  }
+
+   */
+
+
+
+  void showProgressDialog(){
+    showGeneralDialog(
+        context: context,
+        barrierColor: Colors.transparent,
+        transitionDuration: const Duration(milliseconds: 100),
+        pageBuilder: (BuildContext context,Animation animation,Animation secondaryAnimation){
+          return Center(
+            child:SizedBox(
+              width:200,
+              height: 50,
+              child: LinearProgressIndicator(),
+            ),
+          );
+        }
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,13 +127,12 @@ class Home_Page extends State<Home_Page_State>{
       appBar: AppbarComp(),
       bottomNavigationBar: const BottomNavbarCompState(flagName: 'main', text: 'まずは、ご利用になる品目を選択してください。'),
       body: Center(
-
         child:Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children:<Widget>[
               Container(
                 width: 300,
-                margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                margin: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.white,
@@ -142,7 +204,7 @@ class Home_Page extends State<Home_Page_State>{
                                 child:Column(
                                   children: [
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(0, 3, 0, 0),
+                                      margin: const EdgeInsets.fromLTRB(0, 3, 0, 0),
                                       height: 113,
                                       child:Image.asset(
                                         'images/milk.png',
@@ -157,11 +219,55 @@ class Home_Page extends State<Home_Page_State>{
                                   ],
                                 ),
                                 onPressed:(){
+                                  showProgressDialog();
+                                  //StartTimer();
+                                  setState(() {
+
+                                    //_value = _value+0.1;
+                                    /*
+                                    Timer.periodic(
+                                    Duration(milliseconds: 100),
+                                    (Timer timer) {
+                                      setState(() {
+                                        if(_value == 0){
+                                          _value = 0.02;
+                                        }else if(_value == 0.02){
+                                          _value = _value + 0.05;
+                                        }else if(_value == 0.05){
+                                          _value = _value + 0.08;
+                                        }else if(_value == 0.9){
+                                          _value = _value + 0.08;
+                                        }else if(_value == 0.98){
+                                          _value  = _value + 0.02;
+                                        }else{
+                                          _value = _value + 0.15;
+                                        }
+                                        if(_value > 1){
+                                          _value = 0;
+                                          timer.cancel();
+                                        }
+
+                                      });
+                                    });
+
+                                     */
+
+
+
+
+
+                                  });
                                   flagCategory = 'food';
                                   _selectlistUser();
+                                  _value = 0;
+
                                   Future.delayed(const Duration(seconds: 1)).then((_){
+                                    Navigator.pop(context);
                                     Navigator.pushNamed(context, 'ChooseUser_page');
+                                    setState(() {});
                                   });
+
+
                                 }
                             ),
                           ),
@@ -188,7 +294,7 @@ class Home_Page extends State<Home_Page_State>{
                                   children: [
                                     Container(
                                       height: 113,
-                                      margin: EdgeInsets.fromLTRB(0, 3, 0, 0),
+                                      margin: const EdgeInsets.fromLTRB(0, 3, 0, 0),
                                       child:Image.asset(
                                         'images/founda.png',
                                         fit: BoxFit.fitWidth,
@@ -225,7 +331,7 @@ class Home_Page extends State<Home_Page_State>{
                               ),
                               elevation: 7
                           ),
-                          icon: Icon(Icons.import_contacts,color: Colors.white,),
+                          icon: const Icon(Icons.import_contacts,color: Colors.white,),
                           label: const Text('ご利用方法',
                               style: TextStyle(fontSize: 25,
                                 color:Colors.white,
