@@ -39,6 +39,42 @@ class Another_ingredient extends State<StateAnother_ingredient>{
     return forCount;
   }
 
+  List<int> minMaxMethod(String flag){
+    List<int> _mCounter = [];
+    int _minCount = 0;
+    int _maxCount = 0;
+    //文字列が4文字以上と5文字以上にわける
+    for(String nam in DBadd.AddList){
+      if(nam.length <= 4){
+        _minCount++;
+      }
+      if(nam.length > 4){
+        _maxCount++;
+      }
+    }
+    //分けた文字の数を返す
+    if(flag == 'top'){
+      _mCounter.add(0);
+      if(_minCount % 2 == 1){
+        _minCount++;
+      }
+      _mCounter.add(_minCount);
+      debugPrint('_mCounter↑のなかみ$_mCounter');
+    }else {
+      if(_minCount % 2 == 1){
+        _minCount = _minCount+2;
+      }
+      _mCounter.add(_minCount);
+      if(_maxCount % 2 == 1){
+        _maxCount= _maxCount++;
+      }
+      _mCounter.add(_maxCount);
+      debugPrint('_mCounter↓のなかみ$_mCounter');
+    }
+    //debugPrint('DBadd.AddList.lengthのなかみ'+DBadd.AddList.length.toString());
+    return _mCounter;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
