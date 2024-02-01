@@ -115,8 +115,8 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
                                   margin: const EdgeInsets.fromLTRB(0, 3, 7, 3),
                                   child:ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor:  ard.getBool()[n+nn] ? Colors.lightBlueAccent : Colors.white,
-                                      foregroundColor: ard.getBool()[n+nn] ? Colors.white : Colors.black,
+                                      backgroundColor:  ard.getBool2()[n+nn] ? Colors.lightBlueAccent : Colors.white,
+                                      foregroundColor: ard.getBool2()[n+nn] ? Colors.white : Colors.black,
                                       shape:const RoundedRectangleBorder(
                                           borderRadius: BorderRadius.only(
                                             bottomLeft:Radius.circular(50),
@@ -128,7 +128,7 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
                                     ),
                                     onPressed: (){
                                       setState(() {
-                                        ard.getBool()[n+nn] = !ard.getBool()[n+nn];
+                                        ard.getBool2()[n+nn] = !ard.getBool2()[n+nn];
                                       });
 
                                     },
@@ -149,8 +149,8 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
                                     margin: const EdgeInsets.fromLTRB(7, 3, 0, 3),
                                     child:ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                        backgroundColor:  ard.getBool()[n+nn] ? Colors.lightBlueAccent : Colors.white,
-                                        foregroundColor: ard.getBool()[n+nn] ? Colors.white : Colors.black,
+                                        backgroundColor:  ard.getBool2()[n+nn] ? Colors.lightBlueAccent : Colors.white,
+                                        foregroundColor: ard.getBool2()[n+nn] ? Colors.white : Colors.black,
                                         shape:const RoundedRectangleBorder(
                                             borderRadius: BorderRadius.only(
                                               bottomLeft:Radius.circular(50),
@@ -162,7 +162,7 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
                                       ),
                                       onPressed: (){
                                         setState(() {
-                                          ard.getBool()[n+nn] = !ard.getBool()[n+nn];
+                                          ard.getBool2()[n+nn] = !ard.getBool2()[n+nn];
                                         });
 
                                       },
@@ -182,8 +182,8 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
                           margin: const EdgeInsets.fromLTRB(0, 3, 0, 3),
                           child:ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor:  ard.getBool()[n] ? Colors.lightBlueAccent : Colors.white,
-                              foregroundColor: ard.getBool()[n] ? Colors.white : Colors.black,
+                              backgroundColor:  ard.getBool2()[n] ? Colors.lightBlueAccent : Colors.white,
+                              foregroundColor: ard.getBool2()[n] ? Colors.white : Colors.black,
                               shape:const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.only(
                                     bottomLeft:Radius.circular(50),
@@ -195,7 +195,7 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
                             ),
                             onPressed: (){
                               setState(() {
-                                ard.getBool()[n] = !ard.getBool()[n];
+                                ard.getBool2()[n] = !ard.getBool2()[n];
                               });
 
                             },

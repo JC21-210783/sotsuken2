@@ -26,54 +26,18 @@ class Another_ingredient extends State<StateAnother_ingredient>{
   AllRecommendationData ard = AllRecommendationData();
   AllAnotherData aad = AllAnotherData();
   DBadd dbAdd = DBadd();//DBクラスのインスタンス生成
-  //test
-  bool sushi = false;
 
-  int forMethod(){
+  int forMethod(List<String> list){
     int forCount;
-    if(DBadd.AddList.length % 2 == 1){
-      forCount = DBadd.AddList.length+1;
+    if(list.length % 2 == 1){
+      forCount = list.length+1;
     }else{
-      forCount = DBadd.AddList.length;
+      forCount = list.length;
     }
     return forCount;
   }
 
-  List<int> minMaxMethod(String flag){
-    List<int> _mCounter = [];
-    int _minCount = 0;
-    int _maxCount = 0;
-    //文字列が4文字以上と5文字以上にわける
-    for(String nam in DBadd.AddList){
-      if(nam.length <= 4){
-        _minCount++;
-      }
-      if(nam.length > 4){
-        _maxCount++;
-      }
-    }
-    //分けた文字の数を返す
-    if(flag == 'top'){
-      _mCounter.add(0);
-      if(_minCount % 2 == 1){
-        _minCount++;
-      }
-      _mCounter.add(_minCount);
-      debugPrint('_mCounter↑のなかみ$_mCounter');
-    }else {
-      if(_minCount % 2 == 1){
-        _minCount = _minCount+2;
-      }
-      _mCounter.add(_minCount);
-      if(_maxCount % 2 == 1){
-        _maxCount= _maxCount++;
-      }
-      _mCounter.add(_maxCount);
-      debugPrint('_mCounter↓のなかみ$_mCounter');
-    }
-    //debugPrint('DBadd.AddList.lengthのなかみ'+DBadd.AddList.length.toString());
-    return _mCounter;
-  }
+  int allCounter = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -162,48 +126,13 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                 ),
                               ),
                             ]else...[
-                              for(int n = 0 ; n < forMethod(); n = n+2)...[
-                                Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      for(int nn = 0 ; nn < 2  ; nn++)...[
-                                        if(nn == 0)...[
-                                          Container(
-                                            height: 53,
-                                            width:140,
-                                            margin: const EdgeInsets.fromLTRB(0, 3, 7, 3),
-                                            child:ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                backgroundColor:  aad.getBool3()[n+nn] ? Colors.lightBlueAccent : Colors.white,
-                                                foregroundColor: aad.getBool3()[n+nn] ? Colors.white : Colors.black,
-                                                shape:const RoundedRectangleBorder(
-                                                    borderRadius: BorderRadius.only(
-                                                      bottomLeft:Radius.circular(50),
-                                                      topLeft:Radius.circular(50),
-                                                      topRight: Radius.circular(10),
-                                                      bottomRight: Radius.circular(10),
-                                                    )
-                                                ),
-                                              ),
-                                              onPressed: (){
-                                                setState(() {
-                                                  aad.getBool3()[n+nn] = !aad.getBool3()[n+nn];
-                                                });
-
-                                              },
-                                              child: Text(DBadd.AddList[n+nn],style: const TextStyle(fontSize: 22,fontWeight: FontWeight.bold)),
-                                            ),
-                                            //↑今テストで作ってる
-                                          ),
-
-                                        ]else...[
-
-                                          if(DBadd.AddList.length % 2 == 1 && DBadd.AddList.length == n+1)...[
-                                            Container(
-                                              margin: const EdgeInsets.fromLTRB(0, 3, 7, 3),
-                                              width:140,
-                                            ),
-                                          ]else...[
+                              if(DBadd.shortAddList.isNotEmpty)...[
+                                for(int n = 0 ; n < forMethod(DBadd.shortAddList); n = n+2)...[
+                                  Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        for(int nn = 0 ; nn < 2  ; nn++)...[
+                                          if(nn == 0)...[
                                             Container(
                                               height: 53,
                                               width:140,
@@ -227,21 +156,91 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                                   });
 
                                                 },
-                                                child: Text(DBadd.AddList[n+nn],style: const TextStyle(fontSize: 22,fontWeight: FontWeight.bold)),
+                                                child: Text(DBadd.shortAddList[n+nn],style: const TextStyle(fontSize: 22,fontWeight: FontWeight.bold)),
                                               ),
                                               //↑今テストで作ってる
                                             ),
 
+                                          ]else...[
+
+                                            if(DBadd.shortAddList.length % 2 == 1 && DBadd.shortAddList.length == n+1)...[
+                                              Container(
+                                                margin: const EdgeInsets.fromLTRB(7, 3, 0, 3),
+                                                width:140,
+                                              ),
+                                            ]else...[
+                                              Container(
+                                                height: 53,
+                                                width:140,
+                                                margin: const EdgeInsets.fromLTRB(7, 3, 0, 3),
+                                                child:ElevatedButton(
+                                                  style: ElevatedButton.styleFrom(
+                                                    backgroundColor:  aad.getBool3()[n+nn] ? Colors.lightBlueAccent : Colors.white,
+                                                    foregroundColor: aad.getBool3()[n+nn] ? Colors.white : Colors.black,
+                                                    shape:const RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius.only(
+                                                          bottomLeft:Radius.circular(50),
+                                                          topLeft:Radius.circular(50),
+                                                          topRight: Radius.circular(10),
+                                                          bottomRight: Radius.circular(10),
+                                                        )
+                                                    ),
+                                                  ),
+                                                  onPressed: (){
+                                                    setState(() {
+                                                      aad.getBool3()[n+nn] = !aad.getBool3()[n+nn];
+                                                    });
+
+                                                  },
+                                                  child: Text(DBadd.shortAddList[n+nn],style: const TextStyle(fontSize: 22,fontWeight: FontWeight.bold)),
+                                                ),
+                                                //↑今テストで作ってる
+                                              ),
+
+                                            ]
+
                                           ]
+                                        ],
+                                      ]
+                                  )
 
-                                        ]
-                                      ],
-                                    ]
-                                )
-
+                                ],
                               ],
+                              if(DBadd.shortAddList.isNotEmpty)...[
+                                for(int n = 0 ; n < DBadd.longAddList.length; n++)...[
+                                  Container(
+                                    height: 53,
+                                    width:300,
+                                    margin: const EdgeInsets.fromLTRB(0, 3, 0, 3),
+                                    child:ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor:  aad.getBool3()[DBadd.shortAddList.length+n] ? Colors.lightBlueAccent : Colors.white,
+                                        foregroundColor: aad.getBool3()[DBadd.shortAddList.length+n] ? Colors.white : Colors.black,
+                                        shape:const RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft:Radius.circular(50),
+                                              topLeft:Radius.circular(50),
+                                              topRight: Radius.circular(10),
+                                              bottomRight: Radius.circular(10),
+                                            )
+                                        ),
+                                      ),
+                                      onPressed: (){
+                                        setState(() {
+                                          aad.getBool3()[DBadd.shortAddList.length+n] = !aad.getBool3()[DBadd.shortAddList.length+n];
+                                        });
+
+                                      },
+                                      child: Text(DBadd.longAddList[n],style: const TextStyle(fontSize: 22,fontWeight: FontWeight.bold)),
+                                    ),
+                                  ),
+
+                                ],
+
+
+                              ]
                             ],
-                          ]
+                          ],
                         )
                       ),
                       Container(
