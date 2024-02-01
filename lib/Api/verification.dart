@@ -15,11 +15,12 @@ class verifications{
   List<String> select = [];
   int userid = 0;
   List<String> resultfood = [];
-
   // 文字認識結果とユーザ選択成分の照合
   Future<List<String>> verification() async{
     select.clear();
     resultfood.clear();
+
+    //if(Home_Page.flagCategory == 'food'){
 
     Database db = await DBProvider.instance.database;
     List<String> addNameValue = [];//追加成分
@@ -99,49 +100,49 @@ class verifications{
       }
     }if(result.isEmpty){
       result.add("No");
-    }
+      return result;
+    }else{
+      print("これからチェックボックスに表示されている文字を抽出するよ：$result");
 
-    print("これからチェックボックスに表示されている文字を抽出するよ：$result");
+      List<String> selHira = [];
 
-    List<String> selHira = [];
-
-    //追加成分
-    for (int i = 0; i < result.length; i++) {
-      final selHiraQuery = await db.rawQuery('''SELECT hiragana FROM k_add WHERE hiragana = ? OR kanji = ? OR eigo = ? OR otherName = ?''', [result[i], result[i], result[i], result[i]]);
-      for (Map<String, dynamic> row in selHiraQuery) {
-        if (!selHira.contains(row['hiragana'].toString())) {
-          selHira.add(row['hiragana'].toString());
+      //追加成分
+      for (int i = 0; i < result.length; i++) {
+        final selHiraQuery = await db.rawQuery('''SELECT hiragana FROM k_add WHERE hiragana = ? OR kanji = ? OR eigo = ? OR otherName = ?''', [result[i], result[i], result[i], result[i]]);
+        for (Map<String, dynamic> row in selHiraQuery) {
+          if (!selHira.contains(row['hiragana'].toString())) {
+            selHira.add(row['hiragana'].toString());
+          }
         }
       }
-    }
 
-    //表示義務推奨
-    for(int i = 0; i < result.length; i++){
-      final foodName = result[i];
-      final foodQuery = await db.rawQuery('SELECT foodid FROM food WHERE foodname = ?', [foodName]);
+      //表示義務推奨
+      for(int i = 0; i < result.length; i++){
+        final foodName = result[i];
+        final foodQuery = await db.rawQuery('SELECT foodid FROM food WHERE foodname = ?', [foodName]);
 
-      for (Map<String, dynamic> row in foodQuery) {
-        final foodId = row['foodid'].toString();
-        final selId = foodId.substring(0, 2); // 左側二文字を抽出
+        for (Map<String, dynamic> row in foodQuery) {
+          final foodId = row['foodid'].toString();
+          final selId = foodId.substring(0, 2); // 左側二文字を抽出
 
-        Map<String, String> id = {};
-        id.addAll(AllObligationData.Gimu);
-        id.addAll(AllRecommendationData.Sui);
-        final targetId = id.keys.firstWhere((key) => id[key] == foodName, orElse: () => '');
+          Map<String, String> id = {};
+          id.addAll(AllObligationData.Gimu);
+          id.addAll(AllRecommendationData.Sui);
+          final targetId = id.keys.firstWhere((key) => id[key] == foodName, orElse: () => '');
 
-        if (targetId.contains(selId)) { // targetId に selId が含まれているか確認
-          resultfood.add(foodName);
+          if (targetId.contains(selId)) { // targetId に selId が含まれているか確認
+            resultfood.add(foodName);
+          }
+          print("現状のresultfood$resultfood");
         }
-        print("現状のresultfood$resultfood");
+
       }
+      resultfood.addAll(selHira);
+      resultfood = resultfood.toSet().toList();
 
+      print("これをかえすよ$resultfood");
+      return resultfood;
     }
-
-    resultfood.addAll(selHira);
-    resultfood = resultfood.toSet().toList();
-
-    print("これをかえすよ$resultfood");
-    return resultfood;
   }
 
   //美容
