@@ -11,54 +11,38 @@ import 'api.dart';
 class verifications{
   verifications._();
   static final verifications instance = verifications._();
-  List<String> select = [];	//チェックボックスに表示してる文字を格納
-  List<String> others = [];	//その他の文字を格納
+
+  List<String> select = [];
   int userid = 0;
   List<String> resultfood = [];
 
   // 文字認識結果とユーザ選択成分の照合
   Future<List<String>> verification() async{
-    Database db = await DBProvider.instance.database;
-    List<String> foodIDValue = [];//foodidのみ
-    List<String> foodNameValue = [];//foodnameのみ
-    List<String> addNameValue = [];//追加成分
+    select.clear();
+    resultfood.clear();
 
+    Database db = await DBProvider.instance.database;
+    List<String> addNameValue = [];//追加成分
+    List<String> foodNameValue = [];
     print("これからユーザ検証");
     if((DBuser.userId.contains(userid))){
       print("ユーザ居た");
-      //選択されたユーザーがユーザ表に存在したら
-      final foodId = await db.rawQuery('SELECT foodid FROM list where userid = ?',[userid]);
-      debugPrint("ユーザ$useridが登録したfoodidは$foodId");
 
-      //foodIDをもとに、食品表のfoodnameを取得
-      //foodidのvalueだけを抽出
-      for (Map<String, dynamic?> value in foodId) {
-        value.forEach((key, value) {
-          foodIDValue.add(value as String); // foodidを1件ずつ格納
-          debugPrint('foodIDValueの内容：$foodIDValue');
-        });
-      }
-      debugPrint('最終的にfoodIDValueに入れた内容：$foodIDValue');
+      final foodId = await db.rawQuery('SELECT foodid FROM list where userid = ?', [userid]);
+      //foodidのvalueのみ抽出
+      List<String> foodIDValue = foodId.map((e) => e['foodid'].toString()).toList();
 
-      //foodidをもとに、foodNameを特定
-      for (int x = 0; x < foodIDValue.length; x++) {
-        final foodId2 = await db.rawQuery('SELECT foodname FROM food where foodid = ?', [foodIDValue[x]]);
-        for (Map<String, dynamic?> value2 in foodId2) {
-          value2.forEach((key, value) {
-            foodNameValue.add(value as String); // foodidを1件ずつ格納
-            debugPrint('foodNameValueの内容：$foodNameValue');
-          });
-        }
-        debugPrint('最終的にfoodNameValueに入れた内容：$foodNameValue');
+      //foodidからfoodnameをセレクト
+      for (String id in foodIDValue) {
+        final foodId2 = await db.rawQuery('SELECT foodname FROM food where foodid = ?', [id]);
+        foodNameValue.addAll(foodId2.map((e) => e['foodname'].toString()));
       }
-      others.addAll(foodNameValue);
-      print("otherにいれてみた：$others");
+      select.addAll(foodNameValue);
+      print("義務/推奨を入れたselect：$select");
 
       //とあるユーザがリスト表に登録しているaddidを取得
       final addid = await db.rawQuery('SELECT addid FROM list where userid = ?', [userid]);
       print("addid確認：$addid");
-
-      /*先にひらがなのみselectにaddして、kanji,eigo,otherNameを後で格納する形にする*/
 
       //addidをもとにname
       for (Map<String, dynamic?> ADD in addid) {
@@ -84,7 +68,6 @@ class verifications{
       select.addAll(await AllRecommendationData().getValueCheck2());
       select.addAll(await AllAnotherData().getValueCheck3());
 
-      //以降で持ってきた文字はothersに格納する
       print("Foodselect呼び出す");
       List<String> foodSelect = await Foodselect();
       select.addAll(foodSelect);
@@ -155,10 +138,14 @@ class verifications{
     }
 
     resultfood.addAll(selHira);
+    resultfood = resultfood.toSet().toList();
 
     print("これをかえすよ$resultfood");
     return resultfood;
   }
+
+  //美容
+  
 
   List<String> getResultfood(){
     return resultfood;
