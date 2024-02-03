@@ -61,25 +61,6 @@ class Home_Page extends State<Home_Page_State>{
   double _value = 0.0;
   AllAnotherData aad = AllAnotherData();
 
-/*
-  @override
-  void initState(){
-    debugPrint('initStateにきた');
-    super.initState();
-    const timeout = Duration(milliseconds: 100);
-    Timer.periodic(timeout, (Timer t) {
-      setState(() {
-        debugPrint('とおった？？');
-        _value = _value+0.1;
-        if(_value > 1){
-          //_value = 0;
-        }
-      });
-    });
-
-  }
-
- */
 
   int counter = 0;
   void StartTimer(){
@@ -319,11 +300,21 @@ class Home_Page extends State<Home_Page_State>{
             Container(
               color: Colors.white24,
               child: Center(
-                child: Container(
-                  width:200,
-                  height: 50,
-                  child:LinearProgressIndicator(value: _value),
+                child:Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('NowLoading',style: TextStyle(fontSize: 15,color: Colors.blue.shade600),),
+                    SizedBox(
+                      width:200,
+                      height: 30,
+                      child:ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child:LinearProgressIndicator(value: _value),
+                      ),
+                    ),
+                  ],
                 ),
+
               ),
             ),
 
