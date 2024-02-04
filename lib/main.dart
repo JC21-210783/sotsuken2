@@ -241,10 +241,15 @@ class Home_Page extends State<Home_Page_State>{
                                       ],
                                     ),
                                     onPressed:(){
+                                      isLoading = true;
+                                      StartTimer();
+                                      _value = 0;
                                       flagCategory = 'beauty';
                                       _selectlistUser();
                                       Future.delayed(const Duration(seconds: 1)).then((_){
                                         Navigator.pushNamed(context, 'ChooseUser_page');
+                                        isLoading = false;
+                                        setState(() {});
                                       });
                                     }
                                 ),
