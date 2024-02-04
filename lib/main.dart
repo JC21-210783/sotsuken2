@@ -11,6 +11,7 @@ import 'Data/AllAnotherData.dart';
 import 'component/AppbarComp.dart';
 import 'component/BottomNavbarComp.dart';
 
+import 'component/LoadingIndhicator.dart';
 
 void main() {
   runApp(const MyApp());    //const無くても動く(下とセット)
@@ -60,35 +61,28 @@ class Home_Page extends State<Home_Page_State>{
   static String flagCategory = '';
   double _value = 0.0;
   AllAnotherData aad = AllAnotherData();
+  bool isLoading = false;
 
-
-  int counter = 0;
   void StartTimer(){
+    int counter = 0;
     Timer.periodic(Duration(milliseconds: 25), (Timer timer) {
-        setState(() {
-          ++counter;
-          debugPrint('counterのなかみ$counter');
-
-          if(counter < 12){
-            _value += (0.005 * counter/2);
-
-          }else if(counter > 20){
-            _value += 0.005 * (28-counter);
-          }else{
-            _value += 0.087;
-          }
-
-          if(counter == 28){
-            counter = 0;
-            timer.cancel();
-          }
-        });
-
+      setState(() {
+        ++counter;
+        debugPrint('counterのなかみ$counter');
+        if(counter < 12){
+          _value += (0.005 * counter/2);
+        }else if(counter > 20){
+          _value += 0.005 * (28-counter);
+        }else{
+          _value += 0.087;
+        }
+        if(counter == 28){
+          counter = 0;
+          timer.cancel();
+        }
+      });
     });
   }
-
-
-  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -295,27 +289,7 @@ class Home_Page extends State<Home_Page_State>{
           ),
         ),
         if (isLoading)...[
-
-
-            Container(
-              color: Colors.white24,
-              child: Center(
-                child:Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('NowLoading',style: TextStyle(fontSize: 15,color: Colors.blue.shade600,decoration: TextDecoration.none),),
-                    SizedBox(
-                      width:200,
-                      height: 30,
-                      child:ClipRRect(
-                        borderRadius: BorderRadius.circular(30),
-                        child:LinearProgressIndicator(value: _value),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+          StateLoadingIndicator(value: _value,)
         ],
       ],
     );
