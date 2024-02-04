@@ -10,7 +10,6 @@ import 'ui/Manual.dart';
 import 'Data/AllAnotherData.dart';
 import 'component/AppbarComp.dart';
 import 'component/BottomNavbarComp.dart';
-
 import 'component/LoadingIndhicator.dart';
 
 void main() {
@@ -59,11 +58,12 @@ class Home_Page_State extends StatefulWidget{
 class Home_Page extends State<Home_Page_State>{
 
   static String flagCategory = '';
-  double _value = 0.0;
   AllAnotherData aad = AllAnotherData();
+  double _value = 0.0;
   bool isLoading = false;
 
   void StartTimer(){
+    _value = 0;
     int counter = 0;
     Timer.periodic(Duration(milliseconds: 25), (Timer timer) {
       setState(() {
@@ -191,8 +191,6 @@ class Home_Page extends State<Home_Page_State>{
                                       StartTimer();
                                       flagCategory = 'food';
                                       _selectlistUser();
-                                      _value = 0;
-
                                       Future.delayed(const Duration(seconds: 1)).then((_){
                                         //Navigator.pop(context);
                                         Navigator.pushNamed(context, 'ChooseUser_page');
@@ -243,7 +241,6 @@ class Home_Page extends State<Home_Page_State>{
                                     onPressed:(){
                                       isLoading = true;
                                       StartTimer();
-                                      _value = 0;
                                       flagCategory = 'beauty';
                                       _selectlistUser();
                                       Future.delayed(const Duration(seconds: 1)).then((_){
