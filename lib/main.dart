@@ -64,21 +64,21 @@ class Home_Page extends State<Home_Page_State>{
 
   int counter = 0;
   void StartTimer(){
-    Timer.periodic(Duration(milliseconds: 30), (Timer timer) {
+    Timer.periodic(Duration(milliseconds: 25), (Timer timer) {
         setState(() {
-          counter++;
+          ++counter;
           debugPrint('counterのなかみ$counter');
 
           if(counter < 12){
             _value += (0.005 * counter/2);
 
           }else if(counter > 20){
-            _value += 0.005 * (25-counter);
+            _value += 0.005 * (28-counter);
           }else{
             _value += 0.087;
           }
 
-          if(counter == 25){
+          if(counter == 28){
             counter = 0;
             timer.cancel();
           }
@@ -105,7 +105,7 @@ class Home_Page extends State<Home_Page_State>{
                 children:<Widget>[
                   Container(
                     width: 300,
-                    height: 420,
+                    //height: 420,
                     margin: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -303,7 +303,7 @@ class Home_Page extends State<Home_Page_State>{
                 child:Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('NowLoading',style: TextStyle(fontSize: 15,color: Colors.blue.shade600),),
+                    Text('NowLoading',style: TextStyle(fontSize: 15,color: Colors.blue.shade600,decoration: TextDecoration.none),),
                     SizedBox(
                       width:200,
                       height: 30,
@@ -314,11 +314,8 @@ class Home_Page extends State<Home_Page_State>{
                     ),
                   ],
                 ),
-
               ),
             ),
-
-
         ],
       ],
     );
