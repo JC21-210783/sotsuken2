@@ -10,7 +10,7 @@ import '../Data/AllAnotherData.dart';
 import '../Data/AllObligationData.dart';
 import '../Data/AllRecommendationData.dart';
 import '../component/AppbarComp.dart';
-import '../component/LoadingIndhicator.dart';
+import '../component/LoadingIndicator.dart';
 
 
 class StateSettingAllergy extends StatefulWidget{
@@ -33,6 +33,7 @@ class SettingAllergy extends State<StateSettingAllergy>{
   bool isLoading = false;
 
   void StartTimer(){
+    isLoading = true;
     _value = 0;
     int counter = 0;
     Timer.periodic(Duration(milliseconds: 25), (Timer timer) {
@@ -341,7 +342,6 @@ class SettingAllergy extends State<StateSettingAllergy>{
                                         ),
                                         child:const Text('更新',style:TextStyle(fontSize:27,fontWeight: FontWeight.bold,color: Colors.white)),
                                         onPressed:(){
-                                          isLoading = true;
                                           StartTimer();
                                           setState(() {
                                             debugPrint('valueCheckのでーたないよう'+aod.getValueCheck().toString());

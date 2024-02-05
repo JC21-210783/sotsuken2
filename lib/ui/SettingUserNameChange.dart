@@ -4,7 +4,7 @@ import 'dart:async';
 import '../DB/User.dart';
 
 import '../component/AppbarComp.dart';
-import '../component/LoadingIndhicator.dart';
+import '../component/LoadingIndicator.dart';
 
 class StateSettingUserNameChange extends StatefulWidget{
   final String UserName;
@@ -24,6 +24,7 @@ class SettingUserNameChange extends State<StateSettingUserNameChange>{
   bool isLoading = false;
 
   void StartTimer(){
+    isLoading = true;
     _value = 0;
     int counter = 0;
     Timer.periodic(Duration(milliseconds: 25), (Timer timer) {
@@ -220,7 +221,6 @@ class SettingUserNameChange extends State<StateSettingUserNameChange>{
                                           ErrorMessage = '空白「 」は\nご利用いただけません';
                                         });
                                       }else{
-                                        isLoading = true;
                                         StartTimer();
                                         setState(() {
                                           _updateUser();

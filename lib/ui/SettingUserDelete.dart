@@ -6,7 +6,7 @@ import '../DB/User.dart';
 
 import '../Data/AllUserData.dart';
 import '../component/AppbarComp.dart';
-import '../component/LoadingIndhicator.dart';
+import '../component/LoadingIndicator.dart';
 
 class StateSettingUserDelete extends StatefulWidget{
   final String UserName;
@@ -28,6 +28,7 @@ class SettingUserDelete extends State<StateSettingUserDelete>{
   bool isLoading = false;
 
   void StartTimer(){
+    isLoading = true;
     _value = 0;
     int counter = 0;
     Timer.periodic(Duration(milliseconds: 25), (Timer timer) {
@@ -198,7 +199,6 @@ class SettingUserDelete extends State<StateSettingUserDelete>{
                                   onPressed: (){
                                     setState(() {
                                       if(widget.UserName == UN && Agree == true){
-                                        isLoading = true;
                                         StartTimer();
                                         _deleteUser();
                                         //aud.deleteUserName(widget.UserName);

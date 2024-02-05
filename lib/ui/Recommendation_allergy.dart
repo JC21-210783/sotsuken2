@@ -9,7 +9,7 @@ import '../Data/AllObligationData.dart';
 import '../Data/AllAnotherData.dart';
 import '../Data/AllRecommendationData.dart';
 import '../component/AppbarComp.dart';
-import '../component/LoadingIndhicator.dart';
+import '../component/LoadingIndicator.dart';
 
 class StateRecommendation_allergy extends StatefulWidget{
   final String PageFlag;
@@ -35,6 +35,7 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
     _value = 0;
     int counter = 0;
     Timer.periodic(Duration(milliseconds: 25), (Timer timer) {
+      isLoading = true;
       setState(() {
         ++counter;
         debugPrint('counterのなかみ$counter');
@@ -269,7 +270,6 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
                                     elevation: 7
                                 ),
                                 onPressed:(){
-                                  isLoading = true;
                                   StartTimer();
                                   _selectAdd();
                                   Future.delayed(const Duration(seconds: 1)).then((_) {

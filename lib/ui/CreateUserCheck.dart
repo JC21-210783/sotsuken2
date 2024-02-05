@@ -6,7 +6,7 @@ import '../Data/AllObligationData.dart';
 import '../Data/AllRecommendationData.dart';
 import '../Data/AllUserData.dart';
 import '../component/AppbarComp.dart';
-import '../component/LoadingIndhicator.dart';
+import '../component/LoadingIndicator.dart';
 
 import '../DB/User.dart';
 
