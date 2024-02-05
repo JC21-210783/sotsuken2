@@ -31,13 +31,13 @@ class _ImageCheckState extends State<ImageCheck> {
       alignment: Alignment.center,
       children: [
         Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors:[Colors.white,Color(0xFF90D4FA)],
-            ),
-          )
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors:[Colors.white,Color(0xFF90D4FA)],
+              ),
+            )
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
@@ -290,9 +290,27 @@ class _ImageCheckState extends State<ImageCheck> {
         ),// プログレスバーの表示
         if (isLoading)
           Container(
-            color: Colors.black.withOpacity(0.5),
-            child: const Center(
-              child: CircularProgressIndicator(),
+            color: Colors.white54,
+            child: Center(
+              child:Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 30),
+                    padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white70,
+                    ),
+                    child:Text('NowLoading',style: TextStyle(fontSize: 15,color: Colors.blue.shade600,decoration: TextDecoration.none),),
+                  ),
+                  const SizedBox(
+                    width:70,
+                    height: 70,
+                    child:CircularProgressIndicator(strokeWidth: 7),
+                  ),
+                ],
+              ),
             ),
           ),
       ],
