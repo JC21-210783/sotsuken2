@@ -346,6 +346,8 @@ class ChooseUser_Page extends State<StateChooseUser>{
                                                   }),
                                                 );
                                                 aad.AllResetAnother();
+                                                isLoading = false;
+                                                setState(() {});
                                               });
                                             }
                                           },
