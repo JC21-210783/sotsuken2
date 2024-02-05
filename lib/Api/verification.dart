@@ -6,6 +6,7 @@ import '../DB/User.dart';
 import '../Data/AllAnotherData.dart';
 import '../Data/AllObligationData.dart';
 import '../Data/AllRecommendationData.dart';
+import '../main.dart';
 import 'api.dart';
 
 class verifications{
@@ -14,66 +15,102 @@ class verifications{
 
   List<String> select = [];
   int userid = 0;
-  List<String> resultfood = [];
+  List<String> resultVal = [];
   // 文字認識結果とユーザ選択成分の照合
   Future<List<String>> verification() async{
     select.clear();
-    resultfood.clear();
-
-    //if(Home_Page.flagCategory == 'food'){
-
+    resultVal.clear();
     Database db = await DBProvider.instance.database;
-    List<String> addNameValue = [];//追加成分
-    List<String> foodNameValue = [];
-    print("これからユーザ検証");
-    if((DBuser.userId.contains(userid))){
-      print("ユーザ居た");
 
-      final foodId = await db.rawQuery('SELECT foodid FROM list where userid = ?', [userid]);
-      //foodidのvalueのみ抽出
-      List<String> foodIDValue = foodId.map((e) => e['foodid'].toString()).toList();
+    if(Home_Page.flagCategory == 'food'){
+      print("食品が選択されたよ");
 
-      //foodidからfoodnameをセレクト
-      for (String id in foodIDValue) {
-        final foodId2 = await db.rawQuery('SELECT foodname FROM food where foodid = ?', [id]);
-        foodNameValue.addAll(foodId2.map((e) => e['foodname'].toString()));
-      }
-      select.addAll(foodNameValue);
-      print("義務/推奨を入れたselect：$select");
+      List<String> addNameValue = [];//追加成分
+      List<String> foodNameValue = [];
 
-      //とあるユーザがリスト表に登録しているaddidを取得
-      final addid = await db.rawQuery('SELECT addid FROM list where userid = ?', [userid]);
-      print("addid確認：$addid");
+      print("これからユーザ検証");
+      if((DBuser.userId.contains(userid))){
+        print("ユーザ居た");
 
-      //addidをもとにname
-      for (Map<String, dynamic?> ADD in addid) {
-        ADD.forEach((key, value) async {
-          for (int x = 0; x < ADD.length; x++) {
-            final addId2 = await db.rawQuery('SELECT hiragana,kanji,eigo,otherName FROM k_add where addid = ?', [value]);
-            debugPrint('addId2の内容：$addId2');
-            for (Map<String, dynamic?> value2 in addId2) {
-              value2.forEach((key, value) {
-                addNameValue.add(value as String);
-                debugPrint('addNameValueの内容：$addNameValue');
+        final foodId = await db.rawQuery('SELECT foodid FROM list where userid = ?', [userid]);
+        //foodidのvalueのみ抽出
+        List<String> foodIDValue = foodId.map((e) => e['foodid'].toString()).toList();
 
-                select.addAll(addNameValue);
-                print("リストの追加成分結合した結果：$select");
-              });
+        //foodidからfoodnameをセレクト
+        for (String id in foodIDValue) {
+          final foodId2 = await db.rawQuery('SELECT foodname FROM food where foodid = ?', [id]);
+          foodNameValue.addAll(foodId2.map((e) => e['foodname'].toString()));
+        }
+        select.addAll(foodNameValue);
+        print("義務/推奨を入れたselect：$select");
+
+        //とあるユーザがリスト表に登録しているaddidを取得
+        final addid = await db.rawQuery('SELECT addid FROM list where userid = ?', [userid]);
+        print("addid確認：$addid");
+
+        //addidをもとにname
+        for (Map<String, dynamic?> ADD in addid) {
+          ADD.forEach((key, value) async {
+            for (int x = 0; x < ADD.length; x++) {
+              final addId2 = await db.rawQuery('SELECT hiragana,kanji,eigo,otherName FROM k_add where addid = ?', [value]);
+              debugPrint('addId2の内容：$addId2');
+              for (Map<String, dynamic?> value2 in addId2) {
+                value2.forEach((key, value) {
+                  addNameValue.add(value as String);
+                  debugPrint('addNameValueの内容：$addNameValue');
+
+                  select.addAll(addNameValue);
+                  print("リストの追加成分結合した結果：$select");
+                });
+              }
             }
-          }
-        });
+          });
+        }
+      }else{
+        //選択した値格納変数
+        select = await AllObligationData().getValueCheck();
+        select.addAll(await AllRecommendationData().getValueCheck2());
+        select.addAll(await AllAnotherData().getValueCheck3());
+
+        print("Foodselect呼び出す");
+        List<String> foodSelect = await Foodselect();
+        select.addAll(foodSelect);
+        print("呼出し後のセレクト：$select");
       }
     }else{
-      //選択した値格納変数
-      select = await AllObligationData().getValueCheck();
-      select.addAll(await AllRecommendationData().getValueCheck2());
-      select.addAll(await AllAnotherData().getValueCheck3());
+      print("美容が選択されたよ");
+      List<String> beautyNameValue = [];
 
-      print("Foodselect呼び出す");
-      List<String> foodSelect = await Foodselect();
-      select.addAll(foodSelect);
-      print("呼出し後のセレクト：$select");
+      print("これからユーザ検証");
+      if((DBuser.userId.contains(userid))){
+        print("ユーザ居た");
+
+        //useridに紐づくbeautyidをセレクト
+        final beautyid = await db.rawQuery('SELECT beautyid FROM list where userid = ?', [userid]);
+        print('Beauty ID: $beautyid');
+        //beautyidに紐づくbeautyname,kanji,eigo,otherNameをセレクト
+        final beautyname = await db.rawQuery('SELECT beautyname,kanji,eigo,otherName FROM beauty where beautyid = ?', [beautyid]);
+        print('Beauty Name: $beautyname');
+
+        for(Map<String, dynamic?> beauty in beautyname){
+          beauty.forEach((key, value) {
+            if (value != "" && value != null) {
+              beautyNameValue.add(value as String);
+            }
+          });
+        }
+
+        select.addAll(beautyNameValue);
+        print("選択された美容成分を追加した結果：$select");
+
+      }else{
+        select.addAll(await AllAnotherData().getValueCheck3());
+
+        print("選択された美容成分を追加した結果：$select");
+      }
     }
+
+
 
     //文字認識結果格納変数
     List<String> resultvalues = await Api.instance.result();
@@ -104,14 +141,23 @@ class verifications{
     }else{
       print("これからチェックボックスに表示されている文字を抽出するよ：$result");
 
-      List<String> selHira = [];
+      List<String> selectVal = [];
 
       //追加成分
       for (int i = 0; i < result.length; i++) {
-        final selHiraQuery = await db.rawQuery('''SELECT hiragana FROM k_add WHERE hiragana = ? OR kanji = ? OR eigo = ? OR otherName = ?''', [result[i], result[i], result[i], result[i]]);
-        for (Map<String, dynamic> row in selHiraQuery) {
-          if (!selHira.contains(row['hiragana'].toString())) {
-            selHira.add(row['hiragana'].toString());
+        if(Home_Page.flagCategory == 'food'){
+          final selHiraQuery = await db.rawQuery('''SELECT hiragana FROM k_add WHERE hiragana = ? OR kanji = ? OR eigo = ? OR otherName = ?''', [result[i], result[i], result[i], result[i]]);
+          for (Map<String, dynamic> row in selHiraQuery) {
+            if (!selectVal.contains(row['hiragana'].toString())) {
+              selectVal.add(row['hiragana'].toString());
+            }
+          }
+        }else{
+          final selQuery = await db.rawQuery('''SELECT beautyname FROM beauty WHERE beautyname = ? OR kanji = ? OR eigo = ? OR otherName = ?''', [result[i], result[i], result[i], result[i]]);
+          for (Map<String, dynamic> row in selQuery) {
+            if (!selectVal.contains(row['beautyname'].toString())) {
+              selectVal.add(row['beautyname'].toString());
+            }
           }
         }
       }
@@ -131,25 +177,22 @@ class verifications{
           final targetId = id.keys.firstWhere((key) => id[key] == foodName, orElse: () => '');
 
           if (targetId.contains(selId)) { // targetId に selId が含まれているか確認
-            resultfood.add(foodName);
+            resultVal.add(foodName);
           }
-          print("現状のresultfood$resultfood");
+          print("現状のresultfood$resultVal");
         }
-
       }
-      resultfood.addAll(selHira);
-      resultfood = resultfood.toSet().toList();
 
-      print("これをかえすよ$resultfood");
-      return resultfood;
+      resultVal.addAll(selectVal);
+      resultVal = resultVal.toSet().toList();
+
+      print("これをかえすよ$resultVal");
+      return resultVal;
     }
   }
 
-  //美容
-  
-
   List<String> getResultfood(){
-    return resultfood;
+    return resultVal;
   }
 
   //ユーザ選択された時
