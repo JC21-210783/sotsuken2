@@ -27,7 +27,10 @@ class BottomNavbarComp extends State<BottomNavbarCompState> {
         height: 55,
         child:BottomNavigationBar(
           backgroundColor: Colors.blue[400],
-          fixedColor: Colors.white,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white,
+          selectedFontSize: 12,
+          //fixedColor: Colors.white,
           items:  [
             if(widget.flagName == 'main')...[
               const BottomNavigationBarItem(
