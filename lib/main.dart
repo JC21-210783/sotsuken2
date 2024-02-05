@@ -239,7 +239,6 @@ class Home_Page extends State<Home_Page_State>{
                                       ],
                                     ),
                                     onPressed:(){
-                                      isLoading = true;
                                       StartTimer();
                                       flagCategory = 'beauty';
                                       _selectlistUser();
