@@ -121,189 +121,204 @@ class AddAnotherIngredient extends State<StateAddAnotherIngredient>{
                           ),
                         ),
                         Container(
-                          margin:const EdgeInsets.fromLTRB(10, 5, 10, 3),
-                          child:const FittedBox(
-                            child: Text('下記情報を入力してください。',
-                              style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
+                            padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                            width: 322,
+                            decoration: BoxDecoration(
+                              border: Border.all(color:Colors.white30),
+                              borderRadius: BorderRadius.circular(20),
                             ),
-                          ),
-                        ),
-                        Container(
-                          margin:const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                          child:const FittedBox(
-                            child:Text('※成分名はひらがな または カタカナ',
-                              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.red),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          child:Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          child:Column(
                             children: [
+
+
+
                               Container(
-                                padding:EdgeInsets.fromLTRB(5, 3, 5, 3),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  color:Colors.white,
-                                  border: Border.all(
-                                    color: Colors.indigo,
-                                    width: 1.5,
+                                margin:const EdgeInsets.fromLTRB(10, 5, 10, 3),
+                                child:const FittedBox(
+                                  child: Text('下記情報を入力してください。',
+                                    style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.center,
                                   ),
-                                ),
-                                child: const Text('成分名\n(必須)',
-                                  style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
-                                  textAlign: TextAlign.center,
                                 ),
                               ),
                               Container(
-                                padding:EdgeInsets.fromLTRB(10, 5, 10, 5),
-                                decoration: BoxDecoration(
-                                  color:Colors.white,
-                                  border: Border.all(
-                                    color: Colors.indigo,
-                                    width: 1.5,
+                                margin:const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                child:const FittedBox(
+                                  child:Text('※成分名はひらがな または カタカナ',
+                                    style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.red),
+                                    textAlign: TextAlign.center,
                                   ),
                                 ),
-                                margin: EdgeInsets.all(10),
-                                width: 190,
-                                child: TextField(
-                                  style:const TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
-                                  onChanged: (value){
-                                    ingredientName = value;
-                                  },
+                              ),
+                              Container(
+                                child:Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      padding:EdgeInsets.fromLTRB(5, 3, 5, 3),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                        color:Colors.white,
+                                        border: Border.all(
+                                          color: Colors.indigo,
+                                          width: 1.5,
+                                        ),
+                                      ),
+                                      child: const Text('成分名\n(必須)',
+                                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                    Container(
+                                      padding:EdgeInsets.fromLTRB(10, 5, 10, 5),
+                                      decoration: BoxDecoration(
+                                        color:Colors.white,
+                                        border: Border.all(
+                                          color: Colors.indigo,
+                                          width: 1.5,
+                                        ),
+                                      ),
+                                      margin: EdgeInsets.all(10),
+                                      width: 190,
+                                      child: TextField(
+                                        style:const TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+                                        onChanged: (value){
+                                          ingredientName = value;
+                                        },
+                                      ),
+                                    ),
+                                  ],
                                 ),
+                              ),
+
+                              Container(
+                                margin:const EdgeInsets.fromLTRB(10, 15, 10, 3),
+                                child:const FittedBox(
+                                  child:Text('成分名の漢字、英語、別名を\n入力してください。(任意)',
+                                    style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width:90,
+                                    padding:EdgeInsets.fromLTRB(7, 3, 7, 3),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color:Colors.white,
+                                      border: Border.all(
+                                        color: Colors.indigo,
+                                        width: 1,
+                                      ),
+                                    ),
+                                    child: const Text('漢字\n(任意)',
+                                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding:EdgeInsets.fromLTRB(10, 5, 10, 5),
+                                    decoration: BoxDecoration(
+                                      color:Colors.white,
+                                      border: Border.all(
+                                        color: Colors.indigo,
+                                        width: 1,
+                                      ),
+                                    ),
+                                    margin: EdgeInsets.all(10),
+                                    width: 190,
+                                    child: TextField(
+                                      style:const TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+                                      onChanged: (value){
+                                        kanji = value;
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width:90,
+                                    padding:EdgeInsets.fromLTRB(7, 3, 7, 3),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color:Colors.white,
+                                      border: Border.all(
+                                        color: Colors.indigo,
+                                        width: 1,
+                                      ),
+                                    ),
+                                    child: const Text('英語\n(任意)',
+                                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding:EdgeInsets.fromLTRB(10, 5, 10, 5),
+                                    decoration: BoxDecoration(
+                                      color:Colors.white,
+                                      border: Border.all(
+                                        color: Colors.indigo,
+                                        width: 1,
+                                      ),
+                                    ),
+                                    margin: EdgeInsets.all(10),
+                                    width: 190,
+                                    child: TextField(
+                                      style:const TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+                                      onChanged: (value){
+                                        english = value;
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width:90,
+                                    padding:EdgeInsets.fromLTRB(7, 3, 7, 3),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color:Colors.white,
+                                      border: Border.all(
+                                        color: Colors.indigo,
+                                        width: 1,
+                                      ),
+                                    ),
+                                    child: const Text('別名\n(任意)',
+                                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding:EdgeInsets.fromLTRB(10, 5, 10, 5),
+                                    decoration: BoxDecoration(
+                                      color:Colors.white,
+                                      border: Border.all(
+                                        color: Colors.indigo,
+                                        width: 1,
+                                      ),
+                                    ),
+                                    margin: EdgeInsets.all(10),
+                                    width: 190,
+                                    child: TextField(
+                                      style:const TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+                                      onChanged: (value){
+                                        otherName = value;
+                                      },
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                        ),
-
-                        Container(
-                          margin:const EdgeInsets.fromLTRB(10, 15, 10, 3),
-                          child:const FittedBox(
-                            child:Text('成分名の漢字、英語、別名を\n入力してください。(任意)',
-                              style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width:90,
-                              padding:EdgeInsets.fromLTRB(7, 3, 7, 3),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color:Colors.white,
-                                border: Border.all(
-                                  color: Colors.indigo,
-                                  width: 1,
-                                ),
-                              ),
-                              child: const Text('漢字\n(任意)',
-                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                            Container(
-                              padding:EdgeInsets.fromLTRB(10, 5, 10, 5),
-                              decoration: BoxDecoration(
-                                color:Colors.white,
-                                border: Border.all(
-                                  color: Colors.indigo,
-                                  width: 1,
-                                ),
-                              ),
-                              margin: EdgeInsets.all(10),
-                              width: 190,
-                              child: TextField(
-                                style:const TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
-                                onChanged: (value){
-                                  kanji = value;
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width:90,
-                              padding:EdgeInsets.fromLTRB(7, 3, 7, 3),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color:Colors.white,
-                                border: Border.all(
-                                  color: Colors.indigo,
-                                  width: 1,
-                                ),
-                              ),
-                              child: const Text('英語\n(任意)',
-                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                            Container(
-                              padding:EdgeInsets.fromLTRB(10, 5, 10, 5),
-                              decoration: BoxDecoration(
-                                color:Colors.white,
-                                border: Border.all(
-                                  color: Colors.indigo,
-                                  width: 1,
-                                ),
-                              ),
-                              margin: EdgeInsets.all(10),
-                              width: 190,
-                              child: TextField(
-                                style:const TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
-                                onChanged: (value){
-                                  english = value;
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width:90,
-                              padding:EdgeInsets.fromLTRB(7, 3, 7, 3),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color:Colors.white,
-                                border: Border.all(
-                                  color: Colors.indigo,
-                                  width: 1,
-                                ),
-                              ),
-                              child: const Text('別名\n(任意)',
-                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                            Container(
-                              padding:EdgeInsets.fromLTRB(10, 5, 10, 5),
-                              decoration: BoxDecoration(
-                                color:Colors.white,
-                                border: Border.all(
-                                  color: Colors.indigo,
-                                  width: 1,
-                                ),
-                              ),
-                              margin: EdgeInsets.all(10),
-                              width: 190,
-                              child: TextField(
-                                style:const TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
-                                onChanged: (value){
-                                  otherName = value;
-                                },
-                              ),
-                            ),
-                          ],
                         ),
                         Text(ErrorMessage,style:const TextStyle(fontSize: 18,color:Colors.red,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                         Container(
