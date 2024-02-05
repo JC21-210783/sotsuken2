@@ -175,8 +175,6 @@ class ChooseUser_Page extends State<StateChooseUser>{
                             child:Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children:<Widget>[
-
-
                                 Container(margin: EdgeInsets.fromLTRB(0, 20, 0, 10),
                                   decoration: BoxDecoration(
                                     border: Border.all(

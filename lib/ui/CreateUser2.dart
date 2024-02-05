@@ -126,7 +126,7 @@ class CreateUser2_Page extends State<StateCreateUser2> {
                     ),
                     Container(
                       width: 320,
-                      height:370,
+                      height:400,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white,
