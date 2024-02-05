@@ -183,6 +183,7 @@ class SettingUserNameChange extends State<StateSettingUserNameChange>{
                                   child:TextField (
                                     style:const TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
                                     maxLength: 7,
+
                                     onChanged: (value){
                                       afterName = value;
                                     },

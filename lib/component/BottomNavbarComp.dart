@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'DialogComp.dart';
+import 'HintDialogComp.dart';
 
 class BottomNavbarCompState extends StatefulWidget{
   final String flagName;
