@@ -64,7 +64,7 @@ class BottomNavbarComp extends State<BottomNavbarCompState> {
                   showDialog(
                       context: context,
                       builder: (_){
-                        return const DialogCompState(text:'ここのページに戻ってくるためのボタンです。覚えておきましょう。');
+                        return const HintDialogCompState(text:'ここのページに戻ってくるためのボタンです。覚えておきましょう。');
                       }
                   );
                 }else{
@@ -77,7 +77,7 @@ class BottomNavbarComp extends State<BottomNavbarCompState> {
                   showDialog(
                       context: context,
                       builder: (_){
-                        return DialogCompState(text:widget.text);
+                        return HintDialogCompState(text:widget.text);
                       }
                   );
                 }else if(widget.flagName == 'main'){
@@ -90,7 +90,7 @@ class BottomNavbarComp extends State<BottomNavbarCompState> {
                 showDialog(
                     context: context,
                     builder: (_){
-                      return DialogCompState(text:widget.text);
+                      return HintDialogCompState(text:widget.text);
                     }
                 );
             }

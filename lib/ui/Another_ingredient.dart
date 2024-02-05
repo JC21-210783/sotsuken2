@@ -9,6 +9,7 @@ import '../Data/AllObligationData.dart';
 import '../Data/AllRecommendationData.dart';
 import '../Data/AllAnotherData.dart';
 import '../component/AppbarComp.dart';
+import '../component/AlertDialogComp.dart';
 
 class StateAnother_ingredient extends StatefulWidget{
   final String PageFlag;
@@ -305,13 +306,28 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                       elevation: 7
                                   ),
                                   onPressed:(){
+                                    if(Home_Page.flagCategory == 'food'){
+                                      aod.HanteiObligation();
+                                      ard.HanteiRecommendation();
+                                      aad.HanteiAnother();
+                                    }else{
+                                      aad.HanteiAnother();
+                                    }
                                     if(widget.PageFlag == 'ChooseUser'){
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(builder: (context){
-                                            return const StateImageLoderSelect();
-                                          })
-                                      );
-
+                                      if(aod.getValueCheck().isEmpty && ard.getValueCheck2().isEmpty && aad.getValueCheck3().isEmpty){
+                                        showDialog(
+                                            context: context,
+                                            builder: (_){
+                                              return const  AlertDialogCompState();
+                                            }
+                                        );
+                                      }else{
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(builder: (context){
+                                              return const StateImageLoderSelect();
+                                            })
+                                        );
+                                      }
                                     }else if(widget.PageFlag == 'CreateUser'){
                                       Navigator.of(context).pop();
                                     }else if(widget.PageFlag == 'SettingUser'){
@@ -320,13 +336,7 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                         Navigator.of(context).pop();
                                       }
                                     }
-                                    if(Home_Page.flagCategory == 'food'){
-                                      aod.HanteiObligation();
-                                      ard.HanteiRecommendation();
-                                      aad.HanteiAnother();
-                                    }else{
-                                      aad.HanteiAnother();
-                                    }
+
                                   },
                                   child: const Text('決定',style: TextStyle(
                                     fontSize: 23,
