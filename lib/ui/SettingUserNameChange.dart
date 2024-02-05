@@ -189,7 +189,7 @@ class SettingUserNameChange extends State<StateSettingUserNameChange>{
                                   ),
                                 ),
                               ),
-                              Text(ErrorMessage,style:const TextStyle(fontSize: 20,color:Colors.red,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                              Text(ErrorMessage,style:const TextStyle(fontSize: 18,color:Colors.red,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                               Container(
                                   width: 180,
                                   height:55,

@@ -23,6 +23,7 @@ class SettingUserDelete extends State<StateSettingUserDelete>{
   bool Agree = false;
   String UN = "";
   AllUserData aud = AllUserData(username: AllUserData.sUserName);
+  String ErrorMessage = "";
 
   double _value = 0.0;
   bool isLoading = false;
@@ -183,6 +184,7 @@ class SettingUserDelete extends State<StateSettingUserDelete>{
                                 ),
                               ),
                             ),
+                            Text(ErrorMessage,style:const TextStyle(fontSize: 18,color:Colors.red,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                             Container(
                                 width: 200,
                                 height:55,
@@ -201,16 +203,16 @@ class SettingUserDelete extends State<StateSettingUserDelete>{
                                       if(widget.UserName == UN && Agree == true){
                                         StartTimer();
                                         _deleteUser();
-                                        //aud.deleteUserName(widget.UserName);
+                                        Future.delayed(const Duration(seconds: 1)).then((_){
+                                          Navigator.popUntil(context,ModalRoute.withName('ChooseUser_page'));
+                                          isLoading = false;
+                                          setState(() {});
+                                        });
+                                      }else if(Agree != true){
+                                        ErrorMessage = "「ユーザーの削除」に\n同意してください";
                                       }else{
-                                        //エラーメッセが欲しいけど今出す場所ない
+                                        ErrorMessage = "ユーザー名が異なるため\n削除できませんでした";
                                       }
-                                    });
-                                    //ユ－ザー選択画面(ChooseUser)
-                                    Future.delayed(const Duration(seconds: 1)).then((_){
-                                      Navigator.popUntil(context,ModalRoute.withName('ChooseUser_page'));
-                                      isLoading = false;
-                                      setState(() {});
                                     });
                                   },
                                 )

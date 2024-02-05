@@ -132,7 +132,7 @@ class CreateUser1_Page extends State<StateCreateUser1>{
                               ),
                             ),
                           ),
-                          Text(ErrorMessage,style:const TextStyle(fontSize: 20,color:Colors.red,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                          Text(ErrorMessage,style:const TextStyle(fontSize: 18,color:Colors.red,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                           Container(
                               width: 180,
                               height:55,

@@ -306,7 +306,7 @@ class AddAnotherIngredient extends State<StateAddAnotherIngredient>{
                             ),
                           ],
                         ),
-                        Text(ErrorMessage,style:const TextStyle(fontSize: 20,color:Colors.red,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                        Text(ErrorMessage,style:const TextStyle(fontSize: 18,color:Colors.red,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                         Container(
                             width: 200,
                             height:60,
