@@ -25,8 +25,8 @@ class verifications{
     if(Home_Page.flagCategory == 'food'){
       print("食品が選択されたよ");
 
-      List<String> addNameValue = [];//追加成分
-      List<String> foodNameValue = [];
+      List<String> foodNameValue = [];  //表示義務・推奨
+      List<String> addNameValue = [];   //追加成分
 
       print("これからユーザ検証");
       if((DBuser.userId.contains(userid))){
@@ -41,6 +41,7 @@ class verifications{
           final foodId2 = await db.rawQuery('SELECT foodname FROM food where foodid = ?', [id]);
           foodNameValue.addAll(foodId2.map((e) => e['foodname'].toString()));
         }
+
         select.addAll(foodNameValue);
         print("義務/推奨を入れたselect：$select");
 
@@ -67,7 +68,6 @@ class verifications{
           });
         }
       }else{
-        //選択した値格納変数
         select = await AllObligationData().getValueCheck();
         select.addAll(await AllRecommendationData().getValueCheck2());
         select.addAll(await AllAnotherData().getValueCheck3());
@@ -140,6 +140,7 @@ class verifications{
 
       //追加成分
       for (int i = 0; i < result.length; i++) {
+        //Foodだったら
         if(Home_Page.flagCategory == 'food'){
           final selHiraQuery = await db.rawQuery('''SELECT hiragana FROM k_add WHERE hiragana = ? OR kanji = ? OR eigo = ? OR otherName = ?''', [result[i], result[i], result[i], result[i]]);
           for (Map<String, dynamic> row in selHiraQuery) {
@@ -147,6 +148,25 @@ class verifications{
               selectVal.add(row['hiragana'].toString());
             }
           }
+          final foodName = result[i];
+          final foodQuery = await db.rawQuery('SELECT foodid FROM food WHERE foodname = ?', [foodName]);
+
+          //表示義務推奨
+          for (Map<String, dynamic> row in foodQuery) {
+            final foodId = row['foodid'].toString();
+            final selId = foodId.substring(0, 2); // 左側二文字を抽出
+
+            Map<String, String> id = {};
+            id.addAll(AllObligationData.Gimu);
+            id.addAll(AllRecommendationData.Sui);
+            final targetId = id.keys.firstWhere((key) => id[key] == foodName, orElse: () => '');
+
+            if (targetId.contains(selId)) { // targetId に selId が含まれているか確認
+              resultVal.add(foodName);
+            }
+            print("現状のresultfood$resultVal");
+          }
+        //Beautyだったら
         }else{
           final selQuery = await db.rawQuery('''SELECT beautyname FROM beauty WHERE beautyname = ? OR kanji = ? OR eigo = ? OR otherName = ?''', [result[i], result[i], result[i], result[i]]);
           for (Map<String, dynamic> row in selQuery) {
@@ -154,27 +174,6 @@ class verifications{
               selectVal.add(row['beautyname'].toString());
             }
           }
-        }
-      }
-
-      //表示義務推奨
-      for(int i = 0; i < result.length; i++){
-        final foodName = result[i];
-        final foodQuery = await db.rawQuery('SELECT foodid FROM food WHERE foodname = ?', [foodName]);
-
-        for (Map<String, dynamic> row in foodQuery) {
-          final foodId = row['foodid'].toString();
-          final selId = foodId.substring(0, 2); // 左側二文字を抽出
-
-          Map<String, String> id = {};
-          id.addAll(AllObligationData.Gimu);
-          id.addAll(AllRecommendationData.Sui);
-          final targetId = id.keys.firstWhere((key) => id[key] == foodName, orElse: () => '');
-
-          if (targetId.contains(selId)) { // targetId に selId が含まれているか確認
-            resultVal.add(foodName);
-          }
-          print("現状のresultfood$resultVal");
         }
       }
 

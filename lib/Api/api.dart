@@ -4,10 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:sotsuken2/DB/Food.dart';
-import 'package:sqflite/sqflite.dart';
-
-import '../DB/Database.dart';
 
 class Api{
   static List<String> contentList = [""];
@@ -55,9 +51,6 @@ class Api{
       RegExpMatch? matchGenNai = genNai.firstMatch(contentMoji);
       RegExpMatch? matchGen = gen.firstMatch(contentMoji);
 
-      debugPrint("マッチしたか1:$matchGenNai");
-      debugPrint("マッチしたか2:$matchGen");
-
       if (matchGenNai != null) {
         genStr = matchGenNai.group(1)!.trim();
         debugPrint("原材料後1：$genStr");
@@ -66,24 +59,21 @@ class Api{
         debugPrint("原材料後2：$genStr");
       }
     } else if(contentMoji.contains("成分")){
-      print("成分だった");
-
       RegExp biyo = RegExp(r"成分: *(.*)");
       RegExpMatch? matchbiyo = biyo.firstMatch(contentMoji);
       debugPrint("マッチしたか3:$matchbiyo");
+
       if (matchbiyo != null){
         genStr = matchbiyo.group(1)!.trim();
         debugPrint("成分後：$genStr");
       }
-
     }else{
       print("どちらでもない");
-
       genStr = contentMoji;
     }
 
+    //、を見つけるまでを1要素として配列に格納する
     if(genStr.contains('、')){
-      //、を見つけるまでを1要素として配列に格納する
       contentList = genStr.split('、');
     }else if(genStr.contains('·')){
       contentList = genStr.split('·');
