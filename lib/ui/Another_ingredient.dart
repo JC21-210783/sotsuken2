@@ -40,7 +40,6 @@ class Another_ingredient extends State<StateAnother_ingredient>{
       isLoading = true;
       setState(() {
         ++counter;
-        debugPrint('counterのなかみ$counter');
         if(counter < 12){
           _value += (0.005 * counter/2);
         }else if(counter > 20){

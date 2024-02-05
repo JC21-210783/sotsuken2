@@ -166,7 +166,6 @@ class CreateUser1_Page extends State<StateCreateUser1>{
                                   }else{
                                     setState(() {
                                       aud.setUserName(UN);
-                                      //UserName = aud.getUserName();
                                       aod.AllResetObligation();
                                       ard.AllResetRecommendation();
                                       aad.AllResetAnother();
@@ -176,6 +175,10 @@ class CreateUser1_Page extends State<StateCreateUser1>{
                                           return StateCreateUser2(aud.getUserName());
                                         })
                                     );
+                                    setState(() {
+                                      ErrorMessage = "";
+                                    });
+
                                   }
                                 },
                               )

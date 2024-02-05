@@ -39,7 +39,6 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
       isLoading = true;
       setState(() {
         ++counter;
-        debugPrint('counterのなかみ$counter');
         if(counter < 12){
           _value += (0.005 * counter/2);
         }else if(counter > 20){
@@ -325,7 +324,6 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
                                     );
                                   }
                                 }else if(widget.PageFlag == 'CreateUser' || widget.PageFlag =='SettingUser'){
-                                  //なおしたいNamdpush
                                   Navigator.of(context).pop();
                                   Navigator.of(context).pop();
                                 }
