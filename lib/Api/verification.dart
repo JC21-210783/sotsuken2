@@ -85,19 +85,16 @@ class verifications{
       if((DBuser.userId.contains(userid))){
         print("ユーザ居た");
 
-        //useridに紐づくbeautyidをセレクト
-        final beautyid = await db.rawQuery('SELECT beautyid FROM list where userid = ?', [userid]);
-        print('Beauty ID: $beautyid');
-        //beautyidに紐づくbeautyname,kanji,eigo,otherNameをセレクト
-        final beautyname = await db.rawQuery('SELECT beautyname,kanji,eigo,otherName FROM beauty where beautyid = ?', [beautyid]);
-        print('Beauty Name: $beautyname');
 
-        for(Map<String, dynamic?> beauty in beautyname){
-          beauty.forEach((key, value) {
-            if (value != "" && value != null) {
-              beautyNameValue.add(value as String);
-            }
-          });
+        //useridに紐づくbeautyidをセレクト
+        final beautyid = await db.rawQuery('SELECT beautyid FROM list where userid2 = ?', [userid]);
+
+        List<String> beautyIDValue = beautyid.map((e) => e['beautyid'].toString()).toList();
+
+        //beautyidに紐づくbeautyname,kanji,eigo,otherNameをセレクト
+        for (String id in beautyIDValue) {
+          final beautyname = await db.rawQuery('SELECT beautyname,kanji,eigo,otherName FROM beauty where beautyid = ?', [id]);
+          beautyNameValue.addAll(beautyname.map((e) => e['beautyname'].toString()));
         }
 
         select.addAll(beautyNameValue);
