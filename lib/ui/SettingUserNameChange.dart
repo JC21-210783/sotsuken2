@@ -18,6 +18,7 @@ class StateSettingUserNameChange extends StatefulWidget{
 
 class SettingUserNameChange extends State<StateSettingUserNameChange>{
   String afterName = "";
+  String ErrorMessage = "";
 
   double _value = 0.0;
   bool isLoading = false;
@@ -201,18 +202,36 @@ class SettingUserNameChange extends State<StateSettingUserNameChange>{
                                     ),
                                     child:const Text('更新',style: TextStyle(fontSize: 27,fontWeight: FontWeight.bold),),
                                     onPressed: (){
-                                      isLoading = true;
-                                      StartTimer();
-                                      setState(() {
-                                        _updateUser();
-                                        _selectlistUser();
-                                      });
-                                      //ユ－ザー選択画面(ChooseUser)
-                                      Future.delayed(const Duration(seconds: 1)).then((_){
-                                        Navigator.popUntil(context,ModalRoute.withName('ChooseUser_page'));
-                                        isLoading = false;
-                                        setState(() {});
-                                      });
+                                      if(afterName == "") {
+                                        setState(() {
+                                          ErrorMessage = "名前が入力されていません";
+                                        });
+                                      }else if(DBuser.userName.contains(afterName)){
+                                        setState((){
+                                          ErrorMessage = 'この名前は使われています';
+                                        });
+                                      }else if(afterName.contains(' ')){
+                                        setState((){
+                                          ErrorMessage = '空白「 」は\nご利用いただけません';
+                                        });
+                                      }else if(afterName.contains('　')){
+                                        setState((){
+                                          ErrorMessage = '空白「 」は\nご利用いただけません';
+                                        });
+                                      }else{
+                                        isLoading = true;
+                                        StartTimer();
+                                        setState(() {
+                                          _updateUser();
+                                          _selectlistUser();
+                                        });
+                                        //ユ－ザー選択画面(ChooseUser)
+                                        Future.delayed(const Duration(seconds: 1)).then((_){
+                                          Navigator.popUntil(context,ModalRoute.withName('ChooseUser_page'));
+                                          isLoading = false;
+                                          setState(() {});
+                                        });
+                                      }
                                     },
                                   )
                               ),

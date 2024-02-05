@@ -206,7 +206,7 @@ class Another_ingredient extends State<StateAnother_ingredient>{
 
                                 ],
                               ],
-                              if(DBadd.shortAddList.isNotEmpty)...[
+                              if(DBadd.longAddList.isNotEmpty)...[
                                 for(int n = 0 ; n < DBadd.longAddList.length; n++)...[
                                   Container(
                                     height: 53,
