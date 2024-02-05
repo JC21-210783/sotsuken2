@@ -107,10 +107,8 @@ class verifications{
       }
     }
 
-
-
     //文字認識結果格納変数
-    List<String> resultvalues = await Api.instance.result();
+    List<String> resultvalues = await Api.instance.getContentList();
 
     print("verificationのresultvalues：$resultvalues");
     print("verificationのselect：$select");

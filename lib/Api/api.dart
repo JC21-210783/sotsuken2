@@ -65,72 +65,37 @@ class Api{
         genStr = matchGen.group(1)!.trim();
         debugPrint("原材料後2：$genStr");
       }
-    } else {
-      print("else");
+    } else if(contentMoji.contains("成分")){
+      print("成分だった");
+
+      RegExp biyo = RegExp(r"成分: *(.*)");
+      RegExpMatch? matchbiyo = biyo.firstMatch(contentMoji);
+      debugPrint("マッチしたか3:$matchbiyo");
+      if (matchbiyo != null){
+        genStr = matchbiyo.group(1)!.trim();
+        debugPrint("成分後：$genStr");
+      }
+
+    }else{
+      print("どちらでもない");
+
       genStr = contentMoji;
     }
 
-    //、を見つけるまでを1要素として配列に格納する
-    contentList = genStr.split('、');
+    if(genStr.contains('、')){
+      //、を見つけるまでを1要素として配列に格納する
+      contentList = genStr.split('、');
+    }else if(genStr.contains('·')){
+      contentList = genStr.split('·');
+    }else if(genStr.contains(',')){
+      contentList = genStr.split(',');
+    }
+
+    contentList = contentList.where((element) => element.isNotEmpty).toList();
+    
     debugPrint("読み込んだ文字：$contentList");
   }
   List<String> getContentList(){
     return contentList;
-  }
-
-  DBfood dbFood = DBfood();//DBクラスのインスタンス生成
-
-  Future<List<String>> result() async {
-    print("resultきた");
-    List<String> values = [];
-    List<String> result = [];
-    List<String> ocrResult = getContentList();
-
-    Database db = await DBProvider.instance.database;
-
-    //データ全部持ってくる
-    List<Map<String, dynamic>> databaseContent = await db.rawQuery("SELECT foodname FROM food");
-    //追加成分データ持ってくる
-    List<Map<String, dynamic>> selectList = await db.rawQuery('SELECT hiragana,kanji,eigo,otherName FROM k_add where categoryid = ? ',['TS']);
-    print("databaseContent：$databaseContent");
-    print("selectList：$selectList");
-
-    //Map→list変換
-    List<String> foodNames = List<String>.from(databaseContent.map((map) => map['foodname']));
-    List<dynamic> addFoodDynamic = selectList
-        .map((map) => [map['hiragana'], map['kanji'], map['eigo']])
-        .expand((element) => element)
-        .where((element) => element != null)
-        .toList();
-
-    //List<dynamic>→List<String>変換
-    List<String> addFood = addFoodDynamic.cast<String>();
-
-    print("追加成分結合前:$foodNames");
-    foodNames.addAll(addFood);
-    //list型結合 nullでないとき
-    print("追加成分結合後:$foodNames");
-
-
-    for(String foods in foodNames){
-      for(String s in ocrResult) {
-        if (s.contains(foods)) {
-          if(!values.contains(foods)){
-            values.add(s);
-            debugPrint("追加：　$s");
-            break;
-          }
-        }
-      }
-    }
-    if(values.isEmpty){
-      values.add("No");
-      return values;
-    }
-    else{
-      result = values;
-      print("表示：$result");
-      return result;
-    }
   }
 }
