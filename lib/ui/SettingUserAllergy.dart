@@ -280,6 +280,14 @@ class SettingAllergy extends State<StateSettingAllergy>{
                               Container(
                                 margin:const  EdgeInsets.all(7),
                               ),
+                              if(aod.getValueCheck().isEmpty && ard.getValueCheck2().isEmpty && aad.getValueCheck3().isEmpty)...[
+                                Container(
+                                    margin: const EdgeInsets.fromLTRB(10, 100, 10, 50),
+                                    child:const FittedBox(
+                                        child:Text('アレルゲンを１つ以上\n選択してください。',style:TextStyle(fontSize: 23,fontWeight: FontWeight.bold),textAlign: TextAlign.center,)
+                                    )
+                                ),
+                              ],
                               Container(
                                   width:210,
                                   height:55,
@@ -318,44 +326,48 @@ class SettingAllergy extends State<StateSettingAllergy>{
                                       }
                                   )
                               ),
-                              Container(
-                                  width:210,
-                                  height:55,
-                                  margin:const EdgeInsets.fromLTRB(15, 7, 15, 30),
-                                  child:ElevatedButton(
-                                      style:ElevatedButton.styleFrom(
-                                          backgroundColor: Colors.red[400],
-                                          shape:RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(20)
-                                          ) ,
-                                        elevation: 7
-                                      ),
-                                      child:const Text('更新',style:TextStyle(fontSize:27,fontWeight: FontWeight.bold,color: Colors.white)),
-                                      onPressed:(){
-                                        isLoading = true;
-                                        StartTimer();
-                                        setState(() {
-                                          debugPrint('valueCheckのでーたないよう'+aod.getValueCheck().toString());
-                                          aod.valueChangeBool1();
-                                          ard.valueChangeBool2();
-                                          aad.valueChangeBool3();
-                                          _deletelist();//リスト表から前データを削除：追加した処理12/21
-                                          aod.HanteiObligation();
-                                          ard.HanteiRecommendation();
-                                          aad.HanteiAnother();
-                                        });
-                                        Future.delayed(const Duration(seconds: 1)).then((_){
-                                          aod.AllResetObligation();
-                                          ard.AllResetRecommendation();
-                                          aad.AllResetAnother();
-                                          Navigator.pop(context);
-                                          isLoading = false;
-                                          setState(() {});
-                                        });
+                              if(aod.getValueCheck().isNotEmpty || ard.getValueCheck2().isNotEmpty || aad.getValueCheck3().isNotEmpty)...[
+                                Container(
+                                    width:210,
+                                    height:55,
+                                    margin:const EdgeInsets.fromLTRB(15, 7, 15, 30),
+                                    child:ElevatedButton(
+                                        style:ElevatedButton.styleFrom(
+                                            backgroundColor: Colors.red[400],
+                                            shape:RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(20)
+                                            ) ,
+                                            elevation: 7
+                                        ),
+                                        child:const Text('更新',style:TextStyle(fontSize:27,fontWeight: FontWeight.bold,color: Colors.white)),
+                                        onPressed:(){
+                                          isLoading = true;
+                                          StartTimer();
+                                          setState(() {
+                                            debugPrint('valueCheckのでーたないよう'+aod.getValueCheck().toString());
+                                            aod.valueChangeBool1();
+                                            ard.valueChangeBool2();
+                                            aad.valueChangeBool3();
+                                            _deletelist();//リスト表から前データを削除：追加した処理12/21
+                                            aod.HanteiObligation();
+                                            ard.HanteiRecommendation();
+                                            aad.HanteiAnother();
+                                          });
+                                          Future.delayed(const Duration(seconds: 1)).then((_){
+                                            aod.AllResetObligation();
+                                            ard.AllResetRecommendation();
+                                            aad.AllResetAnother();
+                                            Navigator.pop(context);
+                                            isLoading = false;
+                                            setState(() {});
+                                          });
 
-                                      }
-                                  )
-                              )
+                                        }
+                                    )
+                                )
+
+                              ],
+
                             ]
                         )
                     ),
