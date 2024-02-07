@@ -79,6 +79,8 @@ class Api{
       contentList = genStr.split('·');
     }else if(genStr.contains(',')){
       contentList = genStr.split(',');
+    }else{
+      contentList = genStr as List<String>;
     }
 
     contentList = contentList.where((element) => element.isNotEmpty).toList();
