@@ -8,15 +8,20 @@ class StateNicochanEvent extends StatefulWidget{
   }
 }
 
-class NicochanEvent extends State<StateNicochanEvent>{
+class NicochanEvent extends State<StateNicochanEvent> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      width: 100,
-      child: Image.asset('imagees/nicochan'),
-
+    return Center(
+      child: Container(
+        height: 100,
+        width: 100,
+        decoration: ShapeDecoration(
+            color: Colors.transparent,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0))),
+        child: Image.asset('images/nicochan.png')
+      ),
     );
   }
 }
