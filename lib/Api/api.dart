@@ -46,8 +46,8 @@ class Api{
 
     if (contentMoji.contains("原材料")) {
       //原材料後、内容量までを保持
-      RegExp genNai = RegExp(r"原材料名(.*?)[內内]容量(.*)");
-      RegExp gen = RegExp(r"原材料名(.*)");
+      RegExp genNai = RegExp(r"原材料名[:：]?(.*?)[內内]容量(.*)");
+      RegExp gen = RegExp(r"原材料名[:：]?(.*)");
       RegExpMatch? matchGenNai = genNai.firstMatch(contentMoji);
       RegExpMatch? matchGen = gen.firstMatch(contentMoji);
 
@@ -72,6 +72,9 @@ class Api{
       genStr = contentMoji;
     }
 
+    //初期化
+    contentList = [""];
+
     //、を見つけるまでを1要素として配列に格納する
     if(genStr.contains('、')){
       contentList = genStr.split('、');
@@ -79,8 +82,10 @@ class Api{
       contentList = genStr.split('·');
     }else if(genStr.contains(',')){
       contentList = genStr.split(',');
+    } else if(genStr.contains('/')){
+      contentList = genStr.split('/');
     }else{
-      contentList = genStr as List<String>;
+      contentList[0] = genStr;
     }
 
     contentList = contentList.where((element) => element.isNotEmpty).toList();
