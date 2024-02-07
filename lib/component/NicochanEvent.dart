@@ -17,29 +17,62 @@ class NicochanEvent extends State<StateNicochanEvent> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child:GestureDetector(
-        onTap: (){
-          debugPrint(x.toString() + ',' + y.toString());
-          showDialog(
-              barrierColor:Colors.transparent,
-              context: context,
-              builder: (_){
-                return StateNicochanEvent();
-              }
-          );
-        },
-         child: Container(
-            alignment:  Alignment(x,y),
-            child: Transform.rotate(
-              angle: rotate,
-              child: const Image(
-                image: AssetImage('images/nicochan.png',),
-                width: 100,
-                height: 100,
-              )
+      child:Stack(
+        children: [
+          GestureDetector(
+            onTap: (){
+              //debugPrint(x.toString() + ',' + y.toString());
+              showDialog(
+                  barrierColor:Colors.transparent,
+                  context: context,
+                  builder: (_){
+                    return StateNicochanEvent();
+                  }
+              );
+            },
+            child: Container(
+              alignment:  Alignment(x,y),
+              child: Transform.rotate(
+                  angle: rotate,
+                  child: const Image(
+                    image: AssetImage('images/nicochan.png',),
+                    width: 100,
+                    height: 100,
+                  )
+              ),
             ),
-         ),
-        ),
+          ),
+/*
+            IconButton(
+                onPressed: (){
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                },
+                icon: Icon(Icons.cancel_schedule_send,)
+            ),
+
+
+ */
+            Align(
+                alignment: Alignment.topRight,
+                child:ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50)
+                    )
+                  ),
+                  onPressed: (){
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  }, 
+                  child: Text('×',style: TextStyle(color: Colors.black45),)
+                )
+            )
+
+
+
+        ],
+      )
+
     );
   }
 }
