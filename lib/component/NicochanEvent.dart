@@ -56,31 +56,7 @@ class NicochanEvent extends State<StateNicochanEvent> {
                 ),
               ),
             )
-
           ),
-
-
-        /*
-            Align(
-                alignment: Alignment.topRight,
-                child:ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50)
-                    )
-                  ),
-                  onPressed: (){
-                    Navigator.of(context).popUntil((route) => route.isFirst);
-                  },
-                  child: Text('×',style: TextStyle(color: Colors.black45),)
-                )
-            )
-
-         */
-
-
-
         ],
       )
 
