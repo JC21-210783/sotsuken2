@@ -136,117 +136,124 @@ class IngredientDetails extends State<StateIngredientDetails>{
                               ],
                             ),
                           ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(10, 10, 5, 10),
-                            child:Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  width:80,
-                                  padding:EdgeInsets.fromLTRB(5, 20, 5, 20),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    color:Colors.white,
-                                    border: Border.all(
-                                      color: Colors.indigo,
-                                      width: 1,
+                          if(DBadd.addDetail[0].isNotEmpty)...[
+                            Container(
+                              margin: EdgeInsets.fromLTRB(10, 10, 5, 10),
+                              child:Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width:80,
+                                    padding:EdgeInsets.fromLTRB(5, 20, 5, 20),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color:Colors.white,
+                                      border: Border.all(
+                                        color: Colors.indigo,
+                                        width: 1,
+                                      ),
+                                    ),
+                                    child: const Text('漢字',
+                                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
+                                      textAlign: TextAlign.center,
                                     ),
                                   ),
-                                  child: const Text('漢字',
-                                    style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                                Container(
-                                  padding:EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  decoration: BoxDecoration(
-                                    color:Colors.white,
-                                    border: Border.all(
-                                      color: Colors.indigo,
-                                      width: 1,
+                                  Container(
+                                    padding:EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                    decoration: BoxDecoration(
+                                      color:Colors.white,
+                                      border: Border.all(
+                                        color: Colors.indigo,
+                                        width: 1,
+                                      ),
                                     ),
+                                    margin: EdgeInsets.all(10),
+                                    width: 180,
+                                    child: Text(DBadd.addDetail[0],style: TextStyle(fontSize: 20),),
                                   ),
-                                  margin: EdgeInsets.all(10),
-                                  width: 180,
-                                  child: Text(DBadd.addDetail[0],style: TextStyle(fontSize: 20),),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(10, 10, 5, 10),
-                            child:Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  width:80,
-                                  padding:EdgeInsets.fromLTRB(5, 20, 5, 20),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    color:Colors.white,
-                                    border: Border.all(
-                                      color: Colors.indigo,
-                                      width: 1,
+                          ],
+                          if(DBadd.addDetail[1].isNotEmpty)...[
+                            Container(
+                              margin: EdgeInsets.fromLTRB(10, 10, 5, 10),
+                              child:Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width:80,
+                                    padding:EdgeInsets.fromLTRB(5, 20, 5, 20),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color:Colors.white,
+                                      border: Border.all(
+                                        color: Colors.indigo,
+                                        width: 1,
+                                      ),
+                                    ),
+                                    child: const Text('英語',
+                                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
+                                      textAlign: TextAlign.center,
                                     ),
                                   ),
-                                  child: const Text('英語',
-                                    style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                                Container(
-                                  padding:EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  decoration: BoxDecoration(
-                                    color:Colors.white,
-                                    border: Border.all(
-                                      color: Colors.indigo,
-                                      width: 1,
+                                  Container(
+                                    padding:EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                    decoration: BoxDecoration(
+                                      color:Colors.white,
+                                      border: Border.all(
+                                        color: Colors.indigo,
+                                        width: 1,
+                                      ),
                                     ),
+                                    margin: EdgeInsets.all(10),
+                                    width: 180,
+                                    child:Text(DBadd.addDetail[1],style: TextStyle(fontSize: 20),),
                                   ),
-                                  margin: EdgeInsets.all(10),
-                                  width: 180,
-                                  child:Text(DBadd.addDetail[1],style: TextStyle(fontSize: 20),),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.fromLTRB(10, 10, 5, 10),
-                            child:Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  width:80,
-                                  padding:EdgeInsets.fromLTRB(5, 20, 5, 20),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    color:Colors.white,
-                                    border: Border.all(
-                                      color: Colors.indigo,
-                                      width: 1,
+                          ],
+                          if(DBadd.addDetail[2].isNotEmpty)...<Widget>[
+                            Container(
+                              margin: EdgeInsets.fromLTRB(10, 10, 5, 10),
+                              child:Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width:80,
+                                    padding:EdgeInsets.fromLTRB(5, 20, 5, 20),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color:Colors.white,
+                                      border: Border.all(
+                                        color: Colors.indigo,
+                                        width: 1,
+                                      ),
+                                    ),
+                                    child: const Text('別名',
+                                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
+                                      textAlign: TextAlign.center,
                                     ),
                                   ),
-                                  child: const Text('別名',
-                                    style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.indigo),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                                Container(
-                                  padding:EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  decoration: BoxDecoration(
-                                    color:Colors.white,
-                                    border: Border.all(
-                                      color: Colors.indigo,
-                                      width: 1,
+                                  Container(
+                                    padding:EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                    decoration: BoxDecoration(
+                                      color:Colors.white,
+                                      border: Border.all(
+                                        color: Colors.indigo,
+                                        width: 1,
+                                      ),
                                     ),
+                                    margin: EdgeInsets.all(10),
+                                    width: 180,
+                                    child: Text(DBadd.addDetail[2],style: TextStyle(fontSize: 20),),
                                   ),
-                                  margin: EdgeInsets.all(10),
-                                  width: 180,
-                                  child: Text(DBadd.addDetail[2],style: TextStyle(fontSize: 20),),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
+                          ],
+
                         ]
                       ),
                   ),

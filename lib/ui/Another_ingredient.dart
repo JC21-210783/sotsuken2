@@ -191,6 +191,7 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                                     },
                                                     onLongPress: (){
                                                       if(widget.PageFlag == 'Manual'){
+                                                        StartTimer();
                                                         dbAdd.addlistDetail(DBadd.shortAddList[n+nn]);
                                                         Future.delayed(const Duration (seconds: 1)).then((_){
                                                           Navigator.of(context).push(
@@ -198,6 +199,8 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                                                 return StateIngredientDetails(hiragana : DBadd.shortAddList[n+nn]);
                                                               })
                                                           );
+                                                          isLoading = false;
+                                                          setState(() {});
                                                         });
                                                       }
                                                     },
@@ -235,7 +238,21 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                                         setState(() {
                                                           aad.getBool3()[n+nn] = !aad.getBool3()[n+nn];
                                                         });
-
+                                                      },
+                                                      onLongPress: (){
+                                                        if(widget.PageFlag == 'Manual'){
+                                                          StartTimer();
+                                                          dbAdd.addlistDetail(DBadd.shortAddList[n+nn]);
+                                                          Future.delayed(const Duration (seconds: 1)).then((_){
+                                                            Navigator.of(context).push(
+                                                                MaterialPageRoute(builder: (context){
+                                                                  return StateIngredientDetails(hiragana : DBadd.shortAddList[n+nn]);
+                                                                })
+                                                            );
+                                                            isLoading = false;
+                                                            setState(() {});
+                                                          });
+                                                        }
                                                       },
                                                       child: Text(DBadd.shortAddList[n+nn],style: const TextStyle(fontSize: 22,fontWeight: FontWeight.bold)),
                                                     ),
@@ -274,7 +291,21 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                             setState(() {
                                               aad.getBool3()[DBadd.shortAddList.length+n] = !aad.getBool3()[DBadd.shortAddList.length+n];
                                             });
-
+                                          },
+                                          onLongPress: (){
+                                            if(widget.PageFlag == 'Manual'){
+                                              StartTimer();
+                                              dbAdd.addlistDetail(DBadd.longAddList[n]);
+                                              Future.delayed(const Duration (seconds: 1)).then((_){
+                                                Navigator.of(context).push(
+                                                    MaterialPageRoute(builder: (context){
+                                                      return StateIngredientDetails(hiragana : DBadd.longAddList[n]);
+                                                    })
+                                                );
+                                                isLoading = false;
+                                                setState(() {});
+                                              });
+                                            }
                                           },
                                           child: Text(DBadd.longAddList[n],style: const TextStyle(fontSize: 22,fontWeight: FontWeight.bold)),
                                         ),
