@@ -6,6 +6,7 @@ import '../DB/Add.dart';
 import '../main.dart';
 import '../ui/AddAnotherIngredient.dart';
 import '../ui/ImageLoaderSelect.dart';
+import '../ui/IngredientDetails.dart';
 import '../Data/AllObligationData.dart';
 import '../Data/AllRecommendationData.dart';
 import '../Data/AllAnotherData.dart';
@@ -187,6 +188,13 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                                         aad.getBool3()[n+nn] = !aad.getBool3()[n+nn];
                                                       });
 
+                                                    },
+                                                    onLongPress: (){
+                                                      Navigator.of(context).push(
+                                                        MaterialPageRoute(builder: (context){
+                                                          return StateIngredientDetails();
+                                                        })
+                                                      );
                                                     },
                                                     child: Text(DBadd.shortAddList[n+nn],style: const TextStyle(fontSize: 22,fontWeight: FontWeight.bold)),
                                                   ),
