@@ -21,7 +21,6 @@ class NicochanEvent extends State<StateNicochanEvent> {
         children: [
           GestureDetector(
             onTap: (){
-              //debugPrint(x.toString() + ',' + y.toString());
               showDialog(
                   barrierColor:Colors.transparent,
                   context: context,
@@ -42,16 +41,26 @@ class NicochanEvent extends State<StateNicochanEvent> {
               ),
             ),
           ),
-/*
-            IconButton(
-                onPressed: (){
+          Align(
+            alignment: Alignment.topRight,
+            child:Container(
+              margin: const  EdgeInsets.fromLTRB(0, 10, 20, 0),
+              child:GestureDetector(
+                onTap: (){
                   Navigator.of(context).popUntil((route) => route.isFirst);
                 },
-                icon: Icon(Icons.cancel_schedule_send,)
-            ),
+                child: const Icon(
+                  Icons.cancel_outlined,
+                  size: 40,
+                  color: Colors.white,
+                ),
+              ),
+            )
+
+          ),
 
 
- */
+        /*
             Align(
                 alignment: Alignment.topRight,
                 child:ElevatedButton(
@@ -63,10 +72,12 @@ class NicochanEvent extends State<StateNicochanEvent> {
                   ),
                   onPressed: (){
                     Navigator.of(context).popUntil((route) => route.isFirst);
-                  }, 
+                  },
                   child: Text('×',style: TextStyle(color: Colors.black45),)
                 )
             )
+
+         */
 
 
 
