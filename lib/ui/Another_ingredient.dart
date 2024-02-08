@@ -190,11 +190,13 @@ class Another_ingredient extends State<StateAnother_ingredient>{
 
                                                     },
                                                     onLongPress: (){
-                                                      Navigator.of(context).push(
-                                                        MaterialPageRoute(builder: (context){
-                                                          return StateIngredientDetails();
-                                                        })
-                                                      );
+                                                      if(widget.PageFlag == 'Manual'){
+                                                        Navigator.of(context).push(
+                                                            MaterialPageRoute(builder: (context){
+                                                              return StateIngredientDetails();
+                                                            })
+                                                        );
+                                                      }
                                                     },
                                                     child: Text(DBadd.shortAddList[n+nn],style: const TextStyle(fontSize: 22,fontWeight: FontWeight.bold)),
                                                   ),
