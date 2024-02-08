@@ -163,7 +163,7 @@ class DBadd{
     }
   }
 
-  List<String> addDetail = [];//追加成分の詳細が入っているリスト(これ使って!!)
+  static List<String> addDetail = [];//追加成分の詳細が入っているリスト(これ使って!!)
   List<Map<String,dynamic>> detail = [];
   Future<List<String>> addlistDetail(String hiragana) async{
     debugPrint('addDetailにきました');

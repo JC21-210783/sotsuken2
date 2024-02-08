@@ -191,11 +191,14 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                                     },
                                                     onLongPress: (){
                                                       if(widget.PageFlag == 'Manual'){
-                                                        Navigator.of(context).push(
-                                                            MaterialPageRoute(builder: (context){
-                                                              return StateIngredientDetails();
-                                                            })
-                                                        );
+                                                        dbAdd.addlistDetail(DBadd.shortAddList[n+nn]);
+                                                        Future.delayed(const Duration (seconds: 1)).then((_){
+                                                          Navigator.of(context).push(
+                                                              MaterialPageRoute(builder: (context){
+                                                                return StateIngredientDetails(hiragana : DBadd.shortAddList[n+nn]);
+                                                              })
+                                                          );
+                                                        });
                                                       }
                                                     },
                                                     child: Text(DBadd.shortAddList[n+nn],style: const TextStyle(fontSize: 22,fontWeight: FontWeight.bold)),
