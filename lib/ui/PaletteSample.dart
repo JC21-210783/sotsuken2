@@ -3,16 +3,16 @@ import 'dart:math';
 
 import '../component/AppbarComp.dart';
 
-class StateSecretFile extends StatefulWidget{
-  const StateSecretFile({super.key});
+class StatePaletteSample extends StatefulWidget{
+  const StatePaletteSample({super.key});
 
   @override
-  State<StateSecretFile> createState(){
-    return SecretFile();
+  State<StatePaletteSample> createState(){
+    return PaletteSample();
   }
 }
 
-class SecretFile extends State<StateSecretFile> {
+class PaletteSample extends State<StatePaletteSample> {
   var myColor = Colors.grey;
   var myShape = 0.0;
   List<double> mySize = [100,100];

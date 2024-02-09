@@ -107,7 +107,7 @@ class DrawerMenu extends StatelessWidget{
              Navigator.of(context).pop();
              Navigator.of(context).push(
                  MaterialPageRoute(builder: (context){
-                   return const StateSecretFile();
+                   return const StatePaletteSample();
                  })
              );
            },
