@@ -37,7 +37,7 @@ class Another_ingredient extends State<StateAnother_ingredient>{
   void StartTimer(){
     _value = 0;
     int counter = 0;
-    Timer.periodic(Duration(milliseconds: 25), (Timer timer) {
+    Timer.periodic(const Duration(milliseconds: 25), (Timer timer) {
       isLoading = true;
       setState(() {
         ++counter;
@@ -140,9 +140,14 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                 ),
                               ),
                             ),
-
+                            if(widget.PageFlag == 'Manual')...[
+                              Container(
+                                margin:EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                child:const Text('※成分名長押しで詳細を確認できます',style:TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
+                              ),
+                            ],
                           Container(
-                            padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                            padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                             width: 322,
                             decoration: BoxDecoration(
                               border: Border.all(color:Colors.white30),
@@ -193,14 +198,15 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                                       if(widget.PageFlag == 'Manual'){
                                                         StartTimer();
                                                         dbAdd.addlistDetail(DBadd.shortAddList[n+nn]);
-                                                        Future.delayed(const Duration (seconds: 1)).then((_){
-                                                          Navigator.of(context).push(
+                                                        Future.delayed( Duration (seconds: 1)).then((_) async{
+                                                          await Navigator.of(context).push(
                                                               MaterialPageRoute(builder: (context){
                                                                 return StateIngredientDetails(hiragana : DBadd.shortAddList[n+nn]);
                                                               })
                                                           );
-                                                          isLoading = false;
-                                                          setState(() {});
+                                                          setState(() {
+                                                            isLoading = false;
+                                                          });
                                                         });
                                                       }
                                                     },
@@ -243,14 +249,15 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                                         if(widget.PageFlag == 'Manual'){
                                                           StartTimer();
                                                           dbAdd.addlistDetail(DBadd.shortAddList[n+nn]);
-                                                          Future.delayed(const Duration (seconds: 1)).then((_){
-                                                            Navigator.of(context).push(
+                                                          Future.delayed( Duration (seconds: 1)).then((_) async{
+                                                            await Navigator.of(context).push(
                                                                 MaterialPageRoute(builder: (context){
                                                                   return StateIngredientDetails(hiragana : DBadd.shortAddList[n+nn]);
                                                                 })
                                                             );
-                                                            isLoading = false;
-                                                            setState(() {});
+                                                            setState(() {
+                                                              isLoading = false;
+                                                            });
                                                           });
                                                         }
                                                       },
@@ -296,14 +303,15 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                             if(widget.PageFlag == 'Manual'){
                                               StartTimer();
                                               dbAdd.addlistDetail(DBadd.longAddList[n]);
-                                              Future.delayed(const Duration (seconds: 1)).then((_){
-                                                Navigator.of(context).push(
+                                              Future.delayed( Duration (seconds: 1)).then((_) async{
+                                                await Navigator.of(context).push(
                                                     MaterialPageRoute(builder: (context){
                                                       return StateIngredientDetails(hiragana : DBadd.longAddList[n]);
                                                     })
                                                 );
-                                                isLoading = false;
-                                                setState(() {});
+                                                setState(() {
+                                                  isLoading = false;
+                                                });
                                               });
                                             }
                                           },
@@ -340,7 +348,7 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                 Container(
                                   width: 290,
                                   height: 90,
-                                  margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                  margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                                   padding:const EdgeInsets.fromLTRB(0, 7, 0, 7),
                                   child:  ElevatedButton(
                                     style: ElevatedButton.styleFrom(
@@ -439,7 +447,7 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                         StartTimer();
                                         _deleteAdd();
                                         _selectAdd();
-                                        Future.delayed(Duration(seconds: 1)).then((_){
+                                        Future.delayed(const Duration(seconds: 1)).then((_){
                                           aad.AllResetAnother();
                                           isLoading = false;
                                           setState(() {});
