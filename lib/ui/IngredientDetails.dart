@@ -37,7 +37,7 @@ class IngredientDetails extends State<StateIngredientDetails>{
               children: [
                 Container(
                   width: 300,
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 15),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.white,

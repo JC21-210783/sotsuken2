@@ -291,7 +291,7 @@ class SettingAllergy extends State<StateSettingAllergy>{
                               Container(
                                   width:210,
                                   height:55,
-                                  margin:const EdgeInsets.fromLTRB(20, 0, 15, 7),
+                                  margin:const EdgeInsets.fromLTRB(15, 0, 15, 7),
                                   child:ElevatedButton(
                                       style: ElevatedButton.styleFrom(
                                           backgroundColor: Colors.orange,
