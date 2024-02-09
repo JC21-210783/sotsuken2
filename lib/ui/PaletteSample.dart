@@ -30,8 +30,17 @@ class SecretFile extends State<StateSecretFile> {
             Container(
               width: 300,
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.black38),
-                borderRadius: BorderRadius.circular(30),
+                  color:Colors.white,
+                  border: Border.all(color: Colors.black38),
+                  borderRadius: BorderRadius.circular(30),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 2,
+                        spreadRadius: 2,
+                        offset: Offset(4,4)
+                    ),
+                  ]
               ),
               margin: EdgeInsets.fromLTRB(0, 20, 0, 30),
               child:Row(
@@ -91,14 +100,23 @@ class SecretFile extends State<StateSecretFile> {
                 borderRadius: BorderRadius.circular(myShape),
                 //borderRadius: BorderRadius.circular(30)
               ),
-              duration: Duration(milliseconds: 200),
+              duration: Duration(milliseconds: 400),
             ),
             Container(
               width: 300,
-              margin: EdgeInsets.fromLTRB(0, 40, 0, 0),
+              margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
               decoration: BoxDecoration(
+                color:Colors.white,
                 border: Border.all(color: Colors.black38),
                 borderRadius: BorderRadius.circular(30),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 2,
+                      spreadRadius: 2,
+                      offset: Offset(4,4)
+                  ),
+                ]
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
