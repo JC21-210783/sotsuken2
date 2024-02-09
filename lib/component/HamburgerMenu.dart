@@ -3,6 +3,7 @@ import '../ui/Manual.dart';
 import '../ui/CreateUser1.dart';
 import '../ui/Another_ingredient.dart';
 import '../ui/SettingUser1.dart';
+import '../ui/SecretFile.dart';
 import '../Data/AllAnotherData.dart';
 
 
@@ -90,6 +91,23 @@ class DrawerMenu extends StatelessWidget{
              Navigator.of(context).push(
                  MaterialPageRoute(builder: (context){
                    return const StateUserSettings1();
+                 })
+             );
+           },
+         ),
+         //隠し機能
+         ListTile(
+           leading: const Icon(
+             Icons.quiz,
+             color: Colors.black38,
+             size:25,
+           ),
+           title:const Text('？？？',style: TextStyle(fontSize: 20),),
+           onTap:(){
+             Navigator.of(context).pop();
+             Navigator.of(context).push(
+                 MaterialPageRoute(builder: (context){
+                   return const StateSecretFile();
                  })
              );
            },
