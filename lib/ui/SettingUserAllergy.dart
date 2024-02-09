@@ -296,11 +296,11 @@ class SettingAllergy extends State<StateSettingAllergy>{
                                       style: ElevatedButton.styleFrom(
                                           backgroundColor: Colors.orange,
                                           shape:RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(20)
+                                              borderRadius: BorderRadius.circular(15)
                                           ) ,
                                           elevation: 7
                                       ),
-                                      child:const Text('変更',style:TextStyle(fontSize:27,fontWeight: FontWeight.bold,color: Colors.white)),
+                                      child:const Text('変更',style:TextStyle(fontSize:26,fontWeight: FontWeight.bold,color: Colors.white)),
                                       onPressed:(){
                                         if(Home_Page.flagCategory == 'food'){
                                           aod.valueChangeBool1();
@@ -335,11 +335,11 @@ class SettingAllergy extends State<StateSettingAllergy>{
                                         style:ElevatedButton.styleFrom(
                                             backgroundColor: Colors.red[400],
                                             shape:RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(20)
+                                                borderRadius: BorderRadius.circular(15)
                                             ) ,
                                             elevation: 7
                                         ),
-                                        child:const Text('更新',style:TextStyle(fontSize:27,fontWeight: FontWeight.bold,color: Colors.white)),
+                                        child:const Text('更新',style:TextStyle(fontSize:26,fontWeight: FontWeight.bold,color: Colors.white)),
                                         onPressed:(){
                                           StartTimer();
                                           setState(() {

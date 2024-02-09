@@ -37,7 +37,7 @@ class IngredientDetails extends State<StateIngredientDetails>{
               children: [
                 Container(
                   width: 300,
-                  margin: EdgeInsets.fromLTRB(0, 0, 0, 15),
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.white,
@@ -82,31 +82,25 @@ class IngredientDetails extends State<StateIngredientDetails>{
                 ),
                 Container(
                   width: 300,
+                  padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                  //width: 322,
                   decoration: BoxDecoration(
+                    border: Border.all(color:Colors.white30),
                     borderRadius: BorderRadius.circular(20),
-                    color: Colors.white,
-                    boxShadow: const [
-                      BoxShadow(
-                          color:Colors.black12,
-                          blurRadius: 2,
-                          spreadRadius: 2,
-                          offset: Offset(7,7)
-                      )
-                    ],
                   ),
                   child:Container(
-                    margin:EdgeInsets.fromLTRB(0, 20, 0, 20),
+                    margin:const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child:Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children:[
                           Container(
-                            margin: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                            margin: const EdgeInsets.fromLTRB(5, 10, 5, 10),
                             child:Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                  margin:EdgeInsets.fromLTRB(7, 0, 7, 0),
-                                  padding:EdgeInsets.fromLTRB(10, 20, 10, 20),
+                                 margin:const EdgeInsets.fromLTRB(0, 0, 3, 0),
+                                  padding:const EdgeInsets.fromLTRB(10, 20, 10, 20),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                     color:Colors.white,
@@ -121,7 +115,7 @@ class IngredientDetails extends State<StateIngredientDetails>{
                                   ),
                                 ),
                                 Container(
-                                  padding:EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                  padding:const EdgeInsets.fromLTRB(10, 10, 10, 10),
                                   decoration: BoxDecoration(
                                     color:Colors.white,
                                     border: Border.all(
@@ -129,22 +123,22 @@ class IngredientDetails extends State<StateIngredientDetails>{
                                       width: 1.5,
                                     ),
                                   ),
-                                  margin: EdgeInsets.all(5),
+                                  margin: const EdgeInsets.all(5),
                                   width: 180,
-                                  child: Text(widget.hiragana,style: TextStyle(fontSize: 20),),
+                                  child: Text(widget.hiragana,style: const TextStyle(fontSize: 20),),
                                 ),
                               ],
                             ),
                           ),
                           if(DBadd.addDetail[0].isNotEmpty)...[
                             Container(
-                              margin: EdgeInsets.fromLTRB(10, 10, 5, 10),
+                              margin: const EdgeInsets.fromLTRB(10, 10, 5, 10),
                               child:Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Container(
                                     width:80,
-                                    padding:EdgeInsets.fromLTRB(5, 20, 5, 20),
+                                    padding:const EdgeInsets.fromLTRB(5, 20, 5, 20),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
                                       color:Colors.white,
@@ -159,7 +153,7 @@ class IngredientDetails extends State<StateIngredientDetails>{
                                     ),
                                   ),
                                   Container(
-                                    padding:EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                    padding:const EdgeInsets.fromLTRB(10, 10, 10, 10),
                                     decoration: BoxDecoration(
                                       color:Colors.white,
                                       border: Border.all(
@@ -167,9 +161,9 @@ class IngredientDetails extends State<StateIngredientDetails>{
                                         width: 1,
                                       ),
                                     ),
-                                    margin: EdgeInsets.all(10),
+                                    margin: const EdgeInsets.all(10),
                                     width: 180,
-                                    child: Text(DBadd.addDetail[0],style: TextStyle(fontSize: 20),),
+                                    child: Text(DBadd.addDetail[0],style: const TextStyle(fontSize: 20),),
                                   ),
                                 ],
                               ),
@@ -177,13 +171,13 @@ class IngredientDetails extends State<StateIngredientDetails>{
                           ],
                           if(DBadd.addDetail[1].isNotEmpty)...[
                             Container(
-                              margin: EdgeInsets.fromLTRB(10, 10, 5, 10),
+                              margin: const EdgeInsets.fromLTRB(10, 10, 5, 10),
                               child:Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Container(
                                     width:80,
-                                    padding:EdgeInsets.fromLTRB(5, 20, 5, 20),
+                                    padding:const EdgeInsets.fromLTRB(5, 20, 5, 20),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
                                       color:Colors.white,
@@ -198,7 +192,7 @@ class IngredientDetails extends State<StateIngredientDetails>{
                                     ),
                                   ),
                                   Container(
-                                    padding:EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                    padding:const EdgeInsets.fromLTRB(10, 10, 10, 10),
                                     decoration: BoxDecoration(
                                       color:Colors.white,
                                       border: Border.all(
@@ -206,9 +200,9 @@ class IngredientDetails extends State<StateIngredientDetails>{
                                         width: 1,
                                       ),
                                     ),
-                                    margin: EdgeInsets.all(10),
+                                    margin: const EdgeInsets.all(10),
                                     width: 180,
-                                    child:Text(DBadd.addDetail[1],style: TextStyle(fontSize: 20),),
+                                    child:Text(DBadd.addDetail[1],style: const TextStyle(fontSize: 20),),
                                   ),
                                 ],
                               ),
@@ -216,13 +210,13 @@ class IngredientDetails extends State<StateIngredientDetails>{
                           ],
                           if(DBadd.addDetail[2].isNotEmpty)...<Widget>[
                             Container(
-                              margin: EdgeInsets.fromLTRB(10, 10, 5, 10),
+                              margin: const EdgeInsets.fromLTRB(10, 10, 5, 10),
                               child:Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Container(
                                     width:80,
-                                    padding:EdgeInsets.fromLTRB(5, 20, 5, 20),
+                                    padding:const EdgeInsets.fromLTRB(5, 20, 5, 20),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
                                       color:Colors.white,
@@ -237,7 +231,7 @@ class IngredientDetails extends State<StateIngredientDetails>{
                                     ),
                                   ),
                                   Container(
-                                    padding:EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                    padding:const EdgeInsets.fromLTRB(10, 10, 10, 10),
                                     decoration: BoxDecoration(
                                       color:Colors.white,
                                       border: Border.all(
@@ -245,9 +239,9 @@ class IngredientDetails extends State<StateIngredientDetails>{
                                         width: 1,
                                       ),
                                     ),
-                                    margin: EdgeInsets.all(10),
+                                    margin: const EdgeInsets.all(10),
                                     width: 180,
-                                    child: Text(DBadd.addDetail[2],style: TextStyle(fontSize: 20),),
+                                    child: Text(DBadd.addDetail[2],style: const TextStyle(fontSize: 20),),
                                   ),
                                 ],
                               ),
@@ -256,6 +250,23 @@ class IngredientDetails extends State<StateIngredientDetails>{
 
                         ]
                       ),
+                  ),
+                ),
+                Container(
+                  width:200,
+                  height:55,
+                  margin: EdgeInsets.fromLTRB(0, 20, 0, 30),
+                  child: ElevatedButton(
+                    style:ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)
+                        ),
+                        elevation: 7
+                    ),
+                    child:const Text('戻る',style:TextStyle(fontSize:26,fontWeight: FontWeight.bold)),
+                    onPressed: (){
+                      Navigator.pop(context);
+                    },
                   ),
                 )
               ],

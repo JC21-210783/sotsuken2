@@ -240,7 +240,7 @@ class CreateUserCheck extends State<StateCreateUserCheck>{
                                     ),
                                     elevation: 7
                                 ),
-                                child:const Text('戻る',style:TextStyle(fontSize:27,fontWeight: FontWeight.bold)),
+                                child:const Text('戻る',style:TextStyle(fontSize:26,fontWeight: FontWeight.bold)),
                                 onPressed: (){
                                   Navigator.pop(context);
                                 },
@@ -252,8 +252,8 @@ class CreateUserCheck extends State<StateCreateUserCheck>{
                           ),
                           if(aod.getValueCheck().isNotEmpty || ard.getValueCheck2().isNotEmpty || aad.getValueCheck3().isNotEmpty)...[
                             Container(
-                                width:230,
-                                height:60,
+                                width:200,
+                                height:55,
                                 margin:const EdgeInsets.fromLTRB(15, 0, 15, 30),
                                 child:ElevatedButton(
                                   style:ElevatedButton.styleFrom(
@@ -262,7 +262,7 @@ class CreateUserCheck extends State<StateCreateUserCheck>{
                                       ),
                                       elevation: 7
                                   ),
-                                    child:const Text('登録',style:TextStyle(fontSize:30,fontWeight: FontWeight.bold)),
+                                    child:const Text('登録',style:TextStyle(fontSize:26,fontWeight: FontWeight.bold)),
                                     onPressed:(){
                                       setState(() {
                                         isLoading = true;

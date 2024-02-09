@@ -143,7 +143,9 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                             if(widget.PageFlag == 'Manual')...[
                               Container(
                                 margin:EdgeInsets.fromLTRB(0, 0, 0, 5),
-                                child:const Text('※成分名長押しで詳細を確認できます',style:TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
+                                child:const FittedBox(
+                                  child:Text('※成分名長押しで詳細を確認できます',style:TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
+                                ),
                               ),
                             ],
                           Container(
@@ -354,7 +356,7 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                     style: ElevatedButton.styleFrom(
                                         backgroundColor: Colors.blue,
                                         shape:RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(20),
+                                          borderRadius: BorderRadius.circular(15),
                                         ),
                                         elevation: 7
                                     ),
@@ -384,7 +386,7 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                       style: ElevatedButton.styleFrom(
                                           backgroundColor: Colors.orange[700],
                                           shape:RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(20),
+                                            borderRadius: BorderRadius.circular(15),
                                           ),
                                           elevation: 7
                                       ),
@@ -439,7 +441,7 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                       style: ElevatedButton.styleFrom(
                                           backgroundColor: Colors.red[400],
                                           shape:RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(20),
+                                            borderRadius: BorderRadius.circular(15),
                                           ),
                                           elevation: 7
                                       ),

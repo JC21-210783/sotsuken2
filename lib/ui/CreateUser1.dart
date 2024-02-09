@@ -145,7 +145,7 @@ class CreateUser1_Page extends State<StateCreateUser1>{
                                   ),
                                   elevation: 7
                                 ),
-                                child:const Text('次へ',style: TextStyle(fontSize: 27,fontWeight: FontWeight.bold),),
+                                child:const Text('次へ',style: TextStyle(fontSize: 26,fontWeight: FontWeight.bold),),
                                 onPressed: (){
                                   if(UN == "") {
                                     setState(() {

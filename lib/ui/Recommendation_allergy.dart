@@ -265,22 +265,21 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.blue,
                                     shape:RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20),
+                                      borderRadius: BorderRadius.circular(15),
                                     ),
                                     elevation: 7
                                 ),
                                 onPressed:(){
                                   StartTimer();
                                   _selectAdd();
-                                  Future.delayed(const Duration(seconds: 1)).then((_) {
-                                    Navigator.of(context).push(
+                                  Future.delayed(const Duration(seconds: 1)).then((_) async{
+                                    await Navigator.of(context).push(
                                         MaterialPageRoute(builder: (context) {
                                           return StateAnother_ingredient(
                                               PageFlag: widget.PageFlag,PageCount: widget.PageCount+1);
                                         })
                                     );
-                                    isLoading = false;
-                                    setState(() {});
+                                    setState(() { isLoading = false;});
                                   });
                                 },
                                 child: const Text('登録済み成分',
@@ -300,7 +299,7 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.orange[700],
                                   shape:RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(15),
                                   ),
                                   elevation: 7
                               ),

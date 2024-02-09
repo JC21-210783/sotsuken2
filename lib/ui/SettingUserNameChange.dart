@@ -202,7 +202,7 @@ class SettingUserNameChange extends State<StateSettingUserNameChange>{
                                       ),
                                       elevation: 7
                                     ),
-                                    child:const Text('更新',style: TextStyle(fontSize: 27,fontWeight: FontWeight.bold),),
+                                    child:const Text('更新',style: TextStyle(fontSize: 26,fontWeight: FontWeight.bold),),
                                     onPressed: (){
                                       if(afterName == "") {
                                         setState(() {

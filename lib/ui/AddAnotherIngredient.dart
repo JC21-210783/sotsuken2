@@ -129,9 +129,6 @@ class AddAnotherIngredient extends State<StateAddAnotherIngredient>{
                             ),
                           child:Column(
                             children: [
-
-
-
                               Container(
                                 margin:const EdgeInsets.fromLTRB(10, 5, 10, 3),
                                 child:const FittedBox(
@@ -323,17 +320,17 @@ class AddAnotherIngredient extends State<StateAddAnotherIngredient>{
                         Text(ErrorMessage,style:const TextStyle(fontSize: 18,color:Colors.red,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                         Container(
                             width: 200,
-                            height:60,
+                            height:55,
                             margin: const EdgeInsets.fromLTRB(0, 15, 0, 30),
                             child:ElevatedButton(
                               style:ElevatedButton.styleFrom(
                                   backgroundColor: Colors.blue,
                                   shape:RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(15),
                                   ),
                                   elevation: 7
                               ),
-                              child:const Text('登録',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+                              child:const Text('登録',style: TextStyle(fontSize: 26,fontWeight: FontWeight.bold),),
                               onPressed: (){
                                 if(ingredientName == "") {
                                   setState(() {

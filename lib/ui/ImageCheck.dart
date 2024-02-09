@@ -187,36 +187,12 @@ class _ImageCheckState extends State<ImageCheck> {
                             Container(
                               width: 100,
                               height: 50,
-                              margin: const EdgeInsets.fromLTRB(7, 5, 20, 15),
+                              margin: const EdgeInsets.fromLTRB(20, 5, 10, 15),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.blue[400],
                                     shape:RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(20)
-                                    ) ,
-                                    elevation: 7
-                                ),
-                                child: const Text(
-                                  'いいえ',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                onPressed: () async {
-                                  Navigator.pop(context);
-                                },
-                              ),
-                            ),
-                            Container(
-                              width: 100,
-                              height: 50,
-                              margin: const EdgeInsets.fromLTRB(7, 5, 20, 15),
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.orange[700],
-                                    shape:RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(20)
+                                        borderRadius: BorderRadius.circular(15)
                                     ) ,
                                     elevation: 7
                                 ),
@@ -275,6 +251,30 @@ class _ImageCheckState extends State<ImageCheck> {
                                       );
                                     });
                                   }
+                                },
+                              ),
+                            ),
+                            Container(
+                              width: 100,
+                              height: 50,
+                              margin: const EdgeInsets.fromLTRB(10, 5, 20, 15),
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.orange[700],
+                                    shape:RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15)
+                                    ) ,
+                                    elevation: 7
+                                ),
+                                child: const Text(
+                                  'いいえ',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                onPressed: () async {
+                                  Navigator.pop(context);
                                 },
                               ),
                             ),

@@ -109,7 +109,7 @@ class ImageLoderSelect extends State<StateImageLoderSelect> {
                           style:ElevatedButton.styleFrom(
                               backgroundColor: Colors.indigo,
                               shape:RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)
+                                  borderRadius: BorderRadius.circular(15)
                               ) ,
                               elevation: 7
                           ),
@@ -162,7 +162,7 @@ class ImageLoderSelect extends State<StateImageLoderSelect> {
                           style:ElevatedButton.styleFrom(
                               backgroundColor: Colors.indigo,
                               shape:RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)
+                                  borderRadius: BorderRadius.circular(15)
                               ) ,
                               elevation: 7
                           ),
