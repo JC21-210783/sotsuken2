@@ -3,7 +3,7 @@ import '../ui/Manual.dart';
 import '../ui/CreateUser1.dart';
 import '../ui/Another_ingredient.dart';
 import '../ui/SettingUser1.dart';
-import '../ui/SecretFile.dart';
+import '../ui/PaletteSample.dart';
 import '../Data/AllAnotherData.dart';
 
 
