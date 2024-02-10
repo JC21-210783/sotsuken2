@@ -16,6 +16,7 @@ class PaletteSample extends State<StatePaletteSample> {
   MaterialColor myColor = Colors.grey;
   var myShape = 0.0;
   List<double> mySize = [100,100];
+  Alignment myAlign = Alignment.center;
   List col = [Colors.red,Colors.blue,Colors.yellow,Colors.green,Colors.black,Colors.brown,Colors.deepPurple,
               Colors.lightBlue,Colors.lightGreen,Colors.pink,Colors.orange,Colors.indigo];
 
@@ -91,17 +92,27 @@ class PaletteSample extends State<StatePaletteSample> {
                 ],
               ),
             ),
-            AnimatedContainer(
-              width: mySize[0],
-              height: mySize[1],
-              curve: Curves.easeInOut,
-              decoration: BoxDecoration(
-                color: myColor,
-                borderRadius: BorderRadius.circular(myShape),
-                //borderRadius: BorderRadius.circular(30)
+            //かわるやつ
+            AnimatedAlign(
+              alignment: myAlign,
+              curve: Curves.easeInOutSine,
+              duration: Duration(milliseconds: 700),
+              child: AnimatedContainer(
+                margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                width: mySize[0],
+                height: mySize[1],
+                curve: Curves.easeInOutSine,
+                decoration: BoxDecoration(
+                  color: myColor,
+                  borderRadius: BorderRadius.circular(myShape),
+                  //borderRadius: BorderRadius.circular(30)
+                ),
+                duration: Duration(milliseconds: 400),
               ),
-              duration: Duration(milliseconds: 400),
             ),
+
+
+
             Container(
               width: 300,
               margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
@@ -273,32 +284,59 @@ class PaletteSample extends State<StatePaletteSample> {
                 ],
               ),
             ),
-            /*
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 //△ボタンのムーブ
                 Container(
-                  width:50,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      shape: BoxShape.circle
+                  ),
+                  margin: EdgeInsets.fromLTRB(0, 15, 13, 15),
+                  padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
                   child: IconButton(
-                    onPressed: () {  },
-                    icon: Icon(Icons.arrow_back_ios,size: 50,),
+                    onPressed: () {
+                      setState(() {myAlign = Alignment.centerLeft;});
+                      debugPrint(myAlign.toString());
+                    },
+                    icon: Icon(Icons.chevron_left,size: 35,),
                     
                   ),
                 ),
                 Container(
-                  width:50,
-                  height:50,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      shape: BoxShape.circle
+                  ),
+                  margin: EdgeInsets.fromLTRB(10, 15, 10, 15),
                   child: IconButton(
-                    onPressed: () {  },
-                    icon: Icon(Icons.arrow_forward_ios,size: 50,),
+                    onPressed: () {
+                      setState(() {myAlign = Alignment.center;});
+                    },
+                    icon: Icon(Icons.fiber_manual_record_outlined,size: 30,),
+
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    shape: BoxShape.circle
+                  ),
+                  margin: EdgeInsets.fromLTRB(15, 15, 0, 15),
+                  child: IconButton(
+                    onPressed: () {
+                      setState(() {myAlign = Alignment.centerRight;});
+                    },
+                    icon: Icon(Icons.chevron_right,size: 35,),
 
                   ),
                 )
               ],
             )
 
-             */
+
           ],
         ),
       ),
