@@ -29,7 +29,7 @@ class PaletteSample extends State<StatePaletteSample> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 300,
+              width: 280,
               decoration: BoxDecoration(
                   color:Colors.white,
                   border: Border.all(color: Colors.black38),
@@ -72,7 +72,7 @@ class PaletteSample extends State<StatePaletteSample> {
                         onPressed: (){
                           setState(() {mySize[1] = 100; mySize[0] = 100;});
                         },
-                        child: Text('正方形',style: TextStyle(fontSize: 20),)
+                        child: Text('正方',style: TextStyle(fontSize: 20),)
                     ),
                   ),
                   Container(
@@ -114,7 +114,7 @@ class PaletteSample extends State<StatePaletteSample> {
 
 
             Container(
-              width: 300,
+              width: 290,
               margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
               decoration: BoxDecoration(
                 color:Colors.white,
@@ -139,7 +139,7 @@ class PaletteSample extends State<StatePaletteSample> {
                       Container(
                         width: 40,
                         height: 40,
-                        margin:EdgeInsets.fromLTRB(10, 15, 5, 15),
+                        margin:EdgeInsets.fromLTRB(10, 15, 5, 10),
                         child: ElevatedButton(
                           style:ElevatedButton.styleFrom(
                               backgroundColor: Colors.red,
@@ -156,7 +156,7 @@ class PaletteSample extends State<StatePaletteSample> {
                       Container(
                         width: 40,
                         height: 40,
-                        margin:EdgeInsets.fromLTRB(5, 15, 5, 15),
+                        margin:EdgeInsets.fromLTRB(5, 15, 5, 10),
                         child: ElevatedButton(
                           style:ElevatedButton.styleFrom(
                               backgroundColor: Colors.orange,
@@ -173,7 +173,7 @@ class PaletteSample extends State<StatePaletteSample> {
                       Container(
                         width: 40,
                         height: 40,
-                        margin:EdgeInsets.fromLTRB(5, 15, 5, 15),
+                        margin:EdgeInsets.fromLTRB(5, 15, 5, 10),
                         child: ElevatedButton(
                           style:ElevatedButton.styleFrom(
                               backgroundColor: Colors.yellow,
@@ -190,7 +190,7 @@ class PaletteSample extends State<StatePaletteSample> {
                       Container(
                         width: 40,
                         height: 40,
-                        margin:EdgeInsets.fromLTRB(5, 15, 5, 15),
+                        margin:EdgeInsets.fromLTRB(5, 15, 5, 10),
                         child: ElevatedButton(
                           style:ElevatedButton.styleFrom(
                               backgroundColor: Colors.lightGreen,
@@ -207,7 +207,7 @@ class PaletteSample extends State<StatePaletteSample> {
                       Container(
                         width: 40,
                         height: 40,
-                        margin:EdgeInsets.fromLTRB(5, 15, 10, 15),
+                        margin:EdgeInsets.fromLTRB(5, 15, 10, 10),
                         child: ElevatedButton(
                           style:ElevatedButton.styleFrom(
                               backgroundColor: Colors.lightBlue,
@@ -231,7 +231,7 @@ class PaletteSample extends State<StatePaletteSample> {
                       Container(
                         width: 50,
                         height: 50,
-                        margin:EdgeInsets.fromLTRB(5, 15, 10, 15),
+                        margin:EdgeInsets.fromLTRB(5, 10, 10, 15),
                         child:OutlinedButton(
                           style: OutlinedButton.styleFrom(
                             side: BorderSide(color: Colors.grey ,width:3),
@@ -249,7 +249,7 @@ class PaletteSample extends State<StatePaletteSample> {
                       Container(
                         width: 50,
                         height: 50,
-                        margin:EdgeInsets.fromLTRB(10, 15, 10, 15),
+                        margin:EdgeInsets.fromLTRB(10, 10, 10, 15),
                         child:OutlinedButton(
                           style: OutlinedButton.styleFrom(
                               side: BorderSide(color: Colors.grey ,width:3),
@@ -267,7 +267,7 @@ class PaletteSample extends State<StatePaletteSample> {
                       Container(
                         width: 50,
                         height: 50,
-                        margin:EdgeInsets.fromLTRB(10, 15, 5, 15),
+                        margin:EdgeInsets.fromLTRB(10, 10, 5, 15),
                         child:OutlinedButton(
                           style: OutlinedButton.styleFrom(
                               side: BorderSide(color: Colors.grey ,width:3),

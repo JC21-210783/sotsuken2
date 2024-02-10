@@ -21,6 +21,7 @@ class NicochanEvent extends State<StateNicochanEvent> {
   var alignDefault = Alignment.center;
   var alinList = [Alignment.topCenter,Alignment.centerLeft,Alignment.bottomCenter,Alignment.bottomRight,
                   Alignment.topRight,Alignment.bottomLeft,Alignment.centerLeft,Alignment.centerRight];
+  int  beforram = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +41,10 @@ class NicochanEvent extends State<StateNicochanEvent> {
                   onTap: (){
                     setState(() {
                       int ram = Random().nextInt (8);
+                      for(;beforram == ram; ){
+                        ram = Random().nextInt (8);
+                      }
+                      beforram  = ram;
                       alignDefault = alinList[ram];
                     });
                   },
