@@ -20,7 +20,7 @@ class NicochanEvent extends State<StateNicochanEvent> {
   int nicounter = 0;
   var alignDefault = Alignment.center;
   var alinList = [Alignment.topCenter,Alignment.centerLeft,Alignment.bottomCenter,Alignment.bottomRight,
-                  Alignment.topRight,Alignment.bottomLeft,Alignment.centerLeft,Alignment.centerRight];
+                  Alignment.topRight,Alignment.bottomLeft,Alignment.topLeft,Alignment.centerRight];
   int  beforram = 0;
 
   @override

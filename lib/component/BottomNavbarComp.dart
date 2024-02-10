@@ -107,6 +107,7 @@ class BottomNavbarComp extends State<BottomNavbarCompState> {
                                     //child:画像
                                     child:Container(
                                         height: 130,
+                                        width: 90,
                                         //color:Colors.red,
                                         child:Image(
                                           image: AssetImage('images/moving.png'),
@@ -127,29 +128,17 @@ class BottomNavbarComp extends State<BottomNavbarCompState> {
                                     //child:画像
                                     child:Container(
                                       height: 130,
+                                      width: 90,
                                       //color:Colors.red,
                                       child:Image(
                                         image: AssetImage('images/increase.png'),
                                       ),
                                     )
                                 ),
-
-
-
                           ],
                         );
                       }
                   );
-                  /*
-                  showDialog(
-                      barrierColor:Colors.white30,
-                      context: context,
-                      builder: (_){
-                        return const StateNicochanEvent(nicounter:1);
-                      }
-                  );
-
-                   */
                 }else{
                   Navigator.popUntil(context,ModalRoute.withName('ChooseUser_page'));
                 }
