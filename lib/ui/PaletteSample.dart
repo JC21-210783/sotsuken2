@@ -13,10 +13,10 @@ class StatePaletteSample extends StatefulWidget{
 }
 
 class PaletteSample extends State<StatePaletteSample> {
-  var myColor = Colors.grey;
+  MaterialColor myColor = Colors.grey;
   var myShape = 0.0;
   List<double> mySize = [100,100];
-  List col = [Colors.red,Colors.blue,Colors.yellow,Colors.green,Colors.black38,Colors.brown,Colors.deepPurple,
+  List col = [Colors.red,Colors.blue,Colors.yellow,Colors.green,Colors.black,Colors.brown,Colors.deepPurple,
               Colors.lightBlue,Colors.lightGreen,Colors.pink,Colors.orange,Colors.indigo];
 
   @override
@@ -268,12 +268,8 @@ class PaletteSample extends State<StatePaletteSample> {
                           child: null,
                         ),
                       ),
-                      
-                      
                     ]
                   ),
-
-
                 ],
               ),
             ),
@@ -312,19 +308,16 @@ class PaletteSample extends State<StatePaletteSample> {
             int ramColor = random.nextInt(12);
             double ramShape = random.nextInt(30).toDouble();
             List<double> ramSize = [random.nextInt(200-30+1)+30,random.nextInt(150-30+1)+30];
-
-            /*
-            var myColor = Colors.grey;
-            var myShape = 0.0;
-            List<double> mySize = [100,100];
-
-             */
+            debugPrint(ramColor.toString() + col[ramColor].toString());
             setState(() {
-             debugPrint('ramのなかみ$ramColor');
-             myColor = col[ramColor];
+              if(ramColor != 4){
+                myColor = col[ramColor];
+              }else{
+                myColor = Colors.grey;
+              }
+
              myShape = ramShape;
              mySize = ramSize;
-
             });
           },
           child:Icon( Icons.question_mark),
