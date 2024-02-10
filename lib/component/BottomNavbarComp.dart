@@ -87,12 +87,69 @@ class BottomNavbarComp extends State<BottomNavbarCompState> {
                   );
                 }else if(widget.flagName == 'main'){
                   showDialog(
-                      barrierColor:Colors.transparent,
+                      context: context,
+                      builder: (_) {
+                        return CupertinoAlertDialog(
+                          title: const Text('Mode',style: TextStyle(fontSize: 20),),
+                          actions: [
+
+                                CupertinoDialogAction(
+                                    onPressed: (){
+                                      Navigator.pop(context);
+                                      showDialog(
+                                          barrierColor:Colors.white30,
+                                          context: context,
+                                          builder: (_){
+                                            return const StateNicochanEvent(nicounter:0);
+                                          }
+                                      );
+                                    },
+                                    //child:画像
+                                    child:Container(
+                                        height: 130,
+                                        //color:Colors.red,
+                                        child:Image(
+                                          image: AssetImage('images/moving.png'),
+                                      ),
+                                    )
+                                ),
+                                CupertinoDialogAction(
+                                    onPressed: (){
+                                      Navigator.pop(context);
+                                      showDialog(
+                                          barrierColor:Colors.white30,
+                                          context: context,
+                                          builder: (_){
+                                            return const StateNicochanEvent(nicounter:1);
+                                          }
+                                      );
+                                    },
+                                    //child:画像
+                                    child:Container(
+                                      height: 130,
+                                      //color:Colors.red,
+                                      child:Image(
+                                        image: AssetImage('images/increase.png'),
+                                      ),
+                                    )
+                                ),
+
+
+
+                          ],
+                        );
+                      }
+                  );
+                  /*
+                  showDialog(
+                      barrierColor:Colors.white30,
                       context: context,
                       builder: (_){
                         return const StateNicochanEvent(nicounter:1);
                       }
                   );
+
+                   */
                 }else{
                   Navigator.popUntil(context,ModalRoute.withName('ChooseUser_page'));
                 }

@@ -27,59 +27,60 @@ class NicochanEvent extends State<StateNicochanEvent> {
     return Center(
       child:Stack(
         children: [
-          AnimatedAlign(
-            alignment: alignDefault,
-            curve: Cubic(0, 5, 0, 0),
-            duration: Duration(seconds: 1),
-            child:Container(
-              width: 200,
-              height: 200,
+          if(widget.nicounter == 0)...[
+            AnimatedAlign(
+              alignment: alignDefault,
+              curve: Cubic(0, 5, 0, 0),
+              duration: Duration(seconds: 1),
+              child:Container(
+                width: 180,
+                height: 180,
 
-              child:GestureDetector(
-                onTap: (){
-                  setState(() {
-                    int ram = Random().nextInt (8);
-                    alignDefault = alinList[ram];
-                  });
-                },
-                child: Image(
-                  image: AssetImage('images/nicochan.png'),
+                child:GestureDetector(
+                  onTap: (){
+                    setState(() {
+                      int ram = Random().nextInt (8);
+                      alignDefault = alinList[ram];
+                    });
+                  },
+                  child: Image(
+                    image: AssetImage('images/nicochan.png'),
+                  ),
                 ),
               ),
             ),
-          ),
+          ],
 
 
-          /*
-          GestureDetector(
-            onTap: (){
-              if(widget.nicounter < 30){
-                setState(() {
-                  nicounter = widget.nicounter + 1;
-                });
-                showDialog(
-                    barrierColor:Colors.transparent,
-                    context: context,
-                    builder: (_){
-                      return StateNicochanEvent(nicounter:nicounter);
-                    }
-                );
-              }
-            },
-            child: Container(
-              alignment:  Alignment(x,y),
-              child: Transform.rotate(
-                  angle: rotate,
-                  child: const Image(
-                    image: AssetImage('images/nicochan.png',),
-                    width: 100,
-                    height: 100,
-                  )
+          if(widget.nicounter != 0)...[
+            GestureDetector(
+              onTap: (){
+                if(widget.nicounter < 30){
+                  setState(() {
+                    nicounter = widget.nicounter + 1;
+                  });
+                  showDialog(
+                      barrierColor:Colors.transparent,
+                      context: context,
+                      builder: (_){
+                        return StateNicochanEvent(nicounter:nicounter);
+                      }
+                  );
+                }
+              },
+              child: Container(
+                alignment:  Alignment(x,y),
+                child: Transform.rotate(
+                    angle: rotate,
+                    child: const Image(
+                      image: AssetImage('images/nicochan.png',),
+                      width: 100,
+                      height: 100,
+                    )
+                ),
               ),
             ),
-          ),
-
-           */
+          ],
           Align(
             alignment: Alignment.topRight,
             child:Container(
@@ -96,26 +97,26 @@ class NicochanEvent extends State<StateNicochanEvent> {
               ),
             )
           ),
-          /*
-          Align(
-              alignment: Alignment.bottomLeft,
-              child:Container(
-                margin: const  EdgeInsets.fromLTRB(20,0,0, 60),
-                width: 70,
-                height: 70,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border.all(width:3,color:Colors.blue.shade300)
-                ),
-                child:Center(
-                  child: Text(widget.nicounter.toString(),style: TextStyle(fontSize: 25),textAlign:TextAlign.center,),
-                ),
+          if(widget.nicounter != 0)...[
+            Align(
+                alignment: Alignment.bottomLeft,
+                child:Container(
+                  margin: const  EdgeInsets.fromLTRB(20,0,0, 60),
+                  width: 70,
+                  height: 70,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(width:3,color:Colors.blue.shade300)
+                  ),
+                  child:Center(
+                    child: Text(widget.nicounter.toString(),style: TextStyle(fontSize: 25),textAlign:TextAlign.center,),
+                  ),
 
-              )
-          ),
+                )
+            ),
+          ],
 
-           */
         ],
       )
 
