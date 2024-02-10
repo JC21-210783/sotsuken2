@@ -343,7 +343,7 @@ class PaletteSample extends State<StatePaletteSample> {
           onPressed: (){
             Random random = Random();
             int ramColor = random.nextInt(12);
-            double ramShape = random.nextInt(30).toDouble();
+            double ramShape = random.nextInt(50).toDouble();
             List<double> ramSize = [random.nextInt(200-30+1)+30,random.nextInt(150-30+1)+30];
             debugPrint(ramColor.toString() + col[ramColor].toString());
             setState(() {
