@@ -299,7 +299,6 @@ class PaletteSample extends State<StatePaletteSample> {
                   child: IconButton(
                     onPressed: () {
                       setState(() {myAlign = Alignment.centerLeft;});
-                      debugPrint(myAlign.toString());
                     },
                     icon: Icon(Icons.chevron_left,size: 35,),
                     
