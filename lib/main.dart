@@ -105,7 +105,6 @@ class Home_Page extends State<Home_Page_State>{
                   children:<Widget>[
                     Container(
                       width: 300,
-                      //height: 420,
                       margin: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -148,7 +147,6 @@ class Home_Page extends State<Home_Page_State>{
                                       question  = !question;
                                       bgColor = question ? Colors.indigo : Colors.transparent;
                                     });
-                                    debugPrint(question.toString());
                                   },
                                   child: const FittedBox(
                                     child:  Text('成分チェッカー',
@@ -160,32 +158,6 @@ class Home_Page extends State<Home_Page_State>{
                                   ),
                                 ),
                               ),
-                              /*
-                              child:Container(
-                                  margin: const EdgeInsets.fromLTRB(10,10,10,10),
-                                  padding: const EdgeInsets.fromLTRB(25,15,25,15),
-                                  decoration: BoxDecoration(
-                                    color:Colors.white,
-                                    borderRadius: BorderRadius.circular(5),
-                                    border: Border.all(
-                                      color: Colors.indigo,
-                                      width: 1,
-                                    ),
-                                  ),
-                                  child: const FittedBox(
-                                    child: Text('成分チェッカー',
-                                      style: TextStyle(
-                                          fontSize: 27,
-                                          color: Colors.indigo,
-                                          fontWeight: FontWeight.bold
-                                      ),
-                                    ),
-                                  )
-                              ),
-
-                               */
-
-
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
