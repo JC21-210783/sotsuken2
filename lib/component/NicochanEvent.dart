@@ -18,15 +18,42 @@ class NicochanEvent extends State<StateNicochanEvent> {
   double y = (Random().nextInt (16).toDouble()-8)/10;
   double rotate = Random().nextInt (4).toDouble()-2;
   int nicounter = 0;
+  var alignDefault = Alignment.center;
+  var alinList = [Alignment.topCenter,Alignment.centerLeft,Alignment.bottomCenter,Alignment.bottomRight,
+                  Alignment.topRight,Alignment.bottomLeft,Alignment.centerLeft,Alignment.centerRight];
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child:Stack(
         children: [
+          AnimatedAlign(
+            alignment: alignDefault,
+            curve: Cubic(0, 5, 0, 0),
+            duration: Duration(seconds: 1),
+            child:Container(
+              width: 200,
+              height: 200,
+
+              child:GestureDetector(
+                onTap: (){
+                  setState(() {
+                    int ram = Random().nextInt (8);
+                    alignDefault = alinList[ram];
+                  });
+                },
+                child: Image(
+                  image: AssetImage('images/nicochan.png'),
+                ),
+              ),
+            ),
+          ),
+
+
+          /*
           GestureDetector(
             onTap: (){
-              if(widget.nicounter < 100){
+              if(widget.nicounter < 30){
                 setState(() {
                   nicounter = widget.nicounter + 1;
                 });
@@ -37,9 +64,6 @@ class NicochanEvent extends State<StateNicochanEvent> {
                       return StateNicochanEvent(nicounter:nicounter);
                     }
                 );
-                if(widget.nicounter == 100){
-                  //おめでとうの処理をいれたい
-                }
               }
             },
             child: Container(
@@ -54,6 +78,8 @@ class NicochanEvent extends State<StateNicochanEvent> {
               ),
             ),
           ),
+
+           */
           Align(
             alignment: Alignment.topRight,
             child:Container(
@@ -70,6 +96,7 @@ class NicochanEvent extends State<StateNicochanEvent> {
               ),
             )
           ),
+          /*
           Align(
               alignment: Alignment.bottomLeft,
               child:Container(
@@ -82,12 +109,13 @@ class NicochanEvent extends State<StateNicochanEvent> {
                     border: Border.all(width:3,color:Colors.blue.shade300)
                 ),
                 child:Center(
-
                   child: Text(widget.nicounter.toString(),style: TextStyle(fontSize: 25),textAlign:TextAlign.center,),
                 ),
 
               )
           ),
+
+           */
         ],
       )
 
