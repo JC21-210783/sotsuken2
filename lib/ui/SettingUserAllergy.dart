@@ -62,8 +62,13 @@ class SettingAllergy extends State<StateSettingAllergy>{
       children: [
         Container(
           decoration: BoxDecoration(
-              color: question ? Colors.orange : null,
-              gradient: question ? null : LinearGradient(
+              gradient: question ?
+              LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors:[Colors.orange.shade300,Colors.orange],
+              ) :
+              LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors:[Colors.white,Color(0xFFFAAC90)],

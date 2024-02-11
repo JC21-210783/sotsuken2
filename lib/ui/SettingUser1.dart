@@ -31,14 +31,19 @@ class UserSettings1 extends State<StateUserSettings1>{
   @override
   Widget build(BuildContext context){
     return Container(
-      decoration: BoxDecoration(
-          color: question ? Colors.orange : null,
-          gradient: question ? null : LinearGradient(
+        decoration: BoxDecoration(
+            gradient: question ?
+            LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors:[Colors.orange.shade300,Colors.orange],
+            ) :
+            LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors:[Colors.white,Color(0xFFFAAC90)],
-        )
-      ),
+          )
+        ),
       child:Scaffold(
         backgroundColor: Colors.transparent,
         appBar:AppbarComp(),

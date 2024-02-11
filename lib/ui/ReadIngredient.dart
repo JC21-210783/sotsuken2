@@ -44,8 +44,13 @@ class _ReadIngredientState extends State<ReadIngredient> {
   Widget build(BuildContext context) {
     return  Container(
       decoration: BoxDecoration(
-          color: question ? Colors.indigo : null,
-          gradient: question ? null : LinearGradient(
+          gradient: question ?
+          LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors:[Colors.indigo.shade300,Colors.indigo],
+          ) :
+          LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors:[Colors.white,Color(0xFF90D4FA)],

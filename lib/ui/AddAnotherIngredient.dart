@@ -61,8 +61,13 @@ class AddAnotherIngredient extends State<StateAddAnotherIngredient>{
   Widget build(BuildContext context){
     return Container(
       decoration: BoxDecoration(
-          color: question ? Colors.indigo : null,
-          gradient: question ? null : LinearGradient(
+          gradient: question ?
+          LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors:[Colors.indigo.shade300,Colors.indigo],
+          ) :
+          LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors:[Colors.white,Color(0xFF90D4FA)],
@@ -145,7 +150,7 @@ class AddAnotherIngredient extends State<StateAddAnotherIngredient>{
                                 margin:const EdgeInsets.fromLTRB(10, 0, 10, 0),
                                 child: FittedBox(
                                   child:Text('※成分名はひらがな または カタカナ',
-                                    style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.red),
+                                    style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: question ? Colors.yellow : Colors.red),
                                     textAlign: TextAlign.center,
                                   ),
                                 ),

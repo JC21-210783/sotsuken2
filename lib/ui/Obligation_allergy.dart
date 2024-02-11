@@ -64,14 +64,19 @@ class Obligation_allergy extends State<StateObligation_allergy>{
       alignment: Alignment.center,
       children: [
         Container(
-            decoration: BoxDecoration(
-                color: question ? Colors.indigo : null,
-                gradient: question ? null : LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors:[Colors.white,Color(0xFF90D4FA)],
-                )
-            ),
+          decoration: BoxDecoration(
+              gradient: question ?
+              LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors:[Colors.indigo.shade300,Colors.indigo],
+              ) :
+              LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors:[Colors.white,Color(0xFF90D4FA)],
+              )
+          ),
             child:Scaffold(
               backgroundColor: Colors.transparent,
                 appBar: AppbarComp(),
