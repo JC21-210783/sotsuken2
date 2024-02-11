@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../main.dart';
 import '../component/AppbarComp.dart';
 import '../ui/ReadIngredient.dart';
 import '../component/BottomNavbarComp.dart';
@@ -14,16 +15,19 @@ class StateAllergyNotDetection extends StatefulWidget{
 
 class AllergyNotDetection_Page extends State<StateAllergyNotDetection>{
 
+  bool question = Home_Page.question;
+
   @override
   Widget build(BuildContext context){
     print("AllergyNotDetectionにきた");
     return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
+      decoration: BoxDecoration(
+          color: question ? Colors.indigo : null,
+          gradient: question ? null : LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors:[Colors.white,Color(0xFF90D4FA)],
-        )
+          )
       ),
       child:Scaffold(
         backgroundColor: Colors.transparent,

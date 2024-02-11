@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../main.dart';
 import '../ui/ImageCheck.dart';
 import '../component/AppbarComp.dart';
 import '../component/BottomNavbarComp.dart';
@@ -16,17 +17,20 @@ class StateImageLoderSelect extends StatefulWidget{
 
 class ImageLoderSelect extends State<StateImageLoderSelect> {
 
+  bool question = Home_Page.question;
+
   @override
   Widget build(BuildContext context) {
     final ImagePicker _picker = ImagePicker();
     return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
+      decoration: BoxDecoration(
+          color: question ? Colors.indigo : null,
+          gradient: question ? null : LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors:[Colors.white,Color(0xFF90D4FA)],
           )
-        ),
+      ),
       child:Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppbarComp(),

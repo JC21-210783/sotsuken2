@@ -4,6 +4,7 @@ import 'dart:async';
 import '../DB/List.dart';
 import '../DB/User.dart';
 
+import '../main.dart';
 import '../Data/AllUserData.dart';
 import '../component/AppbarComp.dart';
 import '../component/LoadingIndicator.dart';
@@ -24,6 +25,7 @@ class SettingUserDelete extends State<StateSettingUserDelete>{
   String UN = "";
   AllUserData aud = AllUserData(username: AllUserData.sUserName);
   String ErrorMessage = "";
+  bool question = Home_Page.question;
 
   double _value = 0.0;
   bool isLoading = false;
@@ -56,12 +58,13 @@ class SettingUserDelete extends State<StateSettingUserDelete>{
       alignment: Alignment.center,
       children: [
         Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
+          decoration: BoxDecoration(
+              color: question ? Colors.orange : null,
+              gradient: question ? null : LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors:[Colors.white,Color(0xFFFAAC90)],
-            )
+              )
           ),
           child:Scaffold(
             backgroundColor: Colors.transparent,

@@ -61,7 +61,7 @@ class Home_Page extends State<Home_Page_State>{
   AllAnotherData aad = AllAnotherData();
   double _value = 0.0;
   bool isLoading = false;
-  bool question = false;
+  static bool question = false;
   var bgColor = Colors.transparent;
 
   void StartTimer(){

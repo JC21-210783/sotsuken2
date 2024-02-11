@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../DB/Add.dart';
 
+import '../main.dart';
 import '../component/AppbarComp.dart';
 
 class StateIngredientDetails extends StatefulWidget{
@@ -15,13 +16,16 @@ class StateIngredientDetails extends StatefulWidget{
 }
 
 class IngredientDetails extends State<StateIngredientDetails>{
+
   DBadd dbAdd = DBadd();
+  bool question = Home_Page.question;
 
   @override
   Widget build(BuildContext context){
     return Container(
-      decoration: const BoxDecoration(
-          gradient: LinearGradient(
+      decoration: BoxDecoration(
+          color: question ? Colors.indigo : null,
+          gradient: question ? null : LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors:[Colors.white,Color(0xFF90D4FA)],

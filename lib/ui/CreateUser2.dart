@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import '../DB/Add.dart';
+
+import '../main.dart';
 import '../ui/CreateUserCheck.dart';
 import '../ui/Obligation_allergy.dart';
 import '../ui/Another_ingredient.dart';
-import '../main.dart';
 import '../Data/AllAnotherData.dart';
 import '../component/AppbarComp.dart';
 import '../component/LoadingIndicator.dart';
 import '../Data/AllRecommendationData.dart';
 import '../Data/AllObligationData.dart';
-
-import '../DB/Add.dart';
 
 class StateCreateUser2 extends StatefulWidget{
   final String sUserName;
@@ -30,6 +30,7 @@ class CreateUser2_Page extends State<StateCreateUser2> {
   AllObligationData aod = AllObligationData();
   AllRecommendationData ard = AllRecommendationData();
   AllAnotherData aad = AllAnotherData();
+  bool question = Home_Page.question;
 
   double _value = 0.0;
   bool isLoading = false;
@@ -62,13 +63,14 @@ class CreateUser2_Page extends State<StateCreateUser2> {
       alignment: Alignment.center,
       children: [
         Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors:[Colors.white,Color(0xFF90D4FA)],
-          )
-        ),
+            decoration: BoxDecoration(
+                color: question ? Colors.indigo : null,
+                gradient: question ? null : LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors:[Colors.white,Color(0xFF90D4FA)],
+                )
+            ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
             appBar: AppbarComp(),

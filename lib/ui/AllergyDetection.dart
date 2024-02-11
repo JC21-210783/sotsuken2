@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../main.dart';
 import '../ui/ReadIngredient.dart';
 import '../component/AppbarComp.dart';
 import '../component/BottomNavbarComp.dart';
@@ -15,6 +16,7 @@ class StateAllergyDetection extends StatefulWidget{
 class AllergyDetection_Page extends State<StateAllergyDetection>{
   List<String>vals = ["読み込み中"];
   bool _isInitialized = false;
+  bool question = Home_Page.question;
 
   @override
   void initState() {
@@ -42,12 +44,13 @@ class AllergyDetection_Page extends State<StateAllergyDetection>{
   Widget build(BuildContext context){
     print("AllergyDetectionにきた");
     return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
+      decoration: BoxDecoration(
+          color: question ? Colors.indigo : null,
+          gradient: question ? null : LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors:[Colors.white,Color(0xFF90D4FA)],
-        )
+          )
       ),
       child:Scaffold(
         backgroundColor: Colors.transparent,

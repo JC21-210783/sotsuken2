@@ -34,6 +34,7 @@ class ChooseUser_Page extends State<StateChooseUser>{
   AllRecommendationData ard = AllRecommendationData();
   AllAnotherData aad = AllAnotherData();
   DBuser dbUser = DBuser();//DBクラスのインスタンス生成
+  bool question = Home_Page.question;
 
   double _value = 0.0;
   bool isLoading = false;
@@ -87,8 +88,9 @@ class ChooseUser_Page extends State<StateChooseUser>{
       alignment: Alignment.center,
       children: [
         Container(
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(
+            decoration: BoxDecoration(
+                color: question ? Colors.indigo : null,
+                gradient: question ? null : LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors:[Colors.white,Color(0xFF90D4FA)],

@@ -3,6 +3,7 @@ import 'dart:async';
 
 import '../DB/Add.dart';
 
+import '../main.dart';
 import '../ui/ImageLoaderSelect.dart';
 import '../ui/Recommendation_allergy.dart';
 import '../ui/Another_ingredient.dart';
@@ -30,6 +31,7 @@ class Obligation_allergy extends State<StateObligation_allergy>{
   AllRecommendationData ard = AllRecommendationData();
   AllAnotherData aad = AllAnotherData();
   final int pagecount = 1;
+  bool question = Home_Page.question;
 
   double _value = 0.0;
   bool isLoading = false;
@@ -62,13 +64,14 @@ class Obligation_allergy extends State<StateObligation_allergy>{
       alignment: Alignment.center,
       children: [
         Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors:[Colors.white,Color(0xFF90D4FA)],
-            )
-          ),
+            decoration: BoxDecoration(
+                color: question ? Colors.indigo : null,
+                gradient: question ? null : LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors:[Colors.white,Color(0xFF90D4FA)],
+                )
+            ),
             child:Scaffold(
               backgroundColor: Colors.transparent,
                 appBar: AppbarComp(),

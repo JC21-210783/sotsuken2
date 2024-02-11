@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../main.dart';
 import '../component/AppbarComp.dart';
 import '../component/BottomNavbarComp.dart';
 import '../ui/AllergyNotDetection.dart';
@@ -25,19 +26,21 @@ class _ImageCheckState extends State<ImageCheck> {
   String state = "トリミング";
   XFile? cropimage;
   Image? imagepath;
+  bool question = Home_Page.question;
 
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.center,
       children: [
         Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
+          decoration: BoxDecoration(
+              color: question ? Colors.indigo : null,
+              gradient: question ? null : LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors:[Colors.white,Color(0xFF90D4FA)],
-              ),
-            )
+              )
+          ),
         ),
         Scaffold(
           backgroundColor: Colors.transparent,

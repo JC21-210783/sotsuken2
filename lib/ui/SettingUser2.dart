@@ -5,10 +5,10 @@ import '../DB/Add.dart';
 import '../DB/Food.dart';
 import '../DB/List.dart';
 
+import '../main.dart';
 import '../ui/SettingUserNameChange.dart';
 import '../ui/SettingUserDelete.dart';
 import '../ui/SettingUserAllergy.dart';
-import '../main.dart';
 import '../Data/AllObligationData.dart';
 import '../Data/AllRecommendationData.dart';
 import '../Data/AllAnotherData.dart';
@@ -31,6 +31,7 @@ class UserSettings2 extends State<StateUserSettings2> {
   AllObligationData aod = AllObligationData();
   AllRecommendationData ard = AllRecommendationData();
   AllAnotherData aad = AllAnotherData();
+  bool question = Home_Page.question;
 
   double _value = 0.0;
   bool isLoading = false;
@@ -63,12 +64,13 @@ class UserSettings2 extends State<StateUserSettings2> {
       alignment: Alignment.center,
       children: [
         Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
+          decoration: BoxDecoration(
+              color: question ? Colors.orange : null,
+              gradient: question ? null : LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors:[Colors.white,Color(0xFFFAAC90)],
-            )
+              )
           ),
           child:Scaffold(
             backgroundColor: Colors.transparent,

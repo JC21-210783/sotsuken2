@@ -3,6 +3,7 @@ import 'dart:async';
 
 import '../DB/Add.dart';
 
+import '../main.dart';
 import '../Data/AllAnotherData.dart';
 import '../component/AppbarComp.dart';
 import '../component/LoadingIndicator.dart';
@@ -29,6 +30,7 @@ class AddAnotherIngredient extends State<StateAddAnotherIngredient>{
 
   String ErrorMessage = "";
   AllAnotherData aad = AllAnotherData();
+  bool question = Home_Page.question;
 
   double _value = 0.0;
   bool isLoading = false;
@@ -58,12 +60,13 @@ class AddAnotherIngredient extends State<StateAddAnotherIngredient>{
   @override
   Widget build(BuildContext context){
     return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
+      decoration: BoxDecoration(
+          color: question ? Colors.indigo : null,
+          gradient: question ? null : LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors:[Colors.white,Color(0xFF90D4FA)],
-        )
+          )
       ),
       child:Stack(
         alignment: Alignment.center,
@@ -131,16 +134,16 @@ class AddAnotherIngredient extends State<StateAddAnotherIngredient>{
                             children: [
                               Container(
                                 margin:const EdgeInsets.fromLTRB(10, 5, 10, 3),
-                                child:const FittedBox(
+                                child: FittedBox(
                                   child: Text('下記情報を入力してください。',
-                                    style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
+                                    style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: question ? Colors.white : null),
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
                               ),
                               Container(
                                 margin:const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                                child:const FittedBox(
+                                child: FittedBox(
                                   child:Text('※成分名はひらがな または カタカナ',
                                     style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.red),
                                     textAlign: TextAlign.center,
@@ -190,9 +193,9 @@ class AddAnotherIngredient extends State<StateAddAnotherIngredient>{
 
                               Container(
                                 margin:const EdgeInsets.fromLTRB(10, 15, 10, 3),
-                                child:const FittedBox(
+                                child: FittedBox(
                                   child:Text('成分名の漢字、英語、別名を\n入力してください。(任意)',
-                                    style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
+                                    style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: question ? Colors.white : null),
                                     textAlign: TextAlign.center,
                                   ),
                                 ),

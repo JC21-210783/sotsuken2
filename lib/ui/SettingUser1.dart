@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../DB/User.dart';
 
+import '../main.dart';
 import '../ui/SettingUser2.dart';
 import '../component/AppbarComp.dart';
 import '../component/BottomNavbarComp.dart';
@@ -17,6 +18,8 @@ class StateUserSettings1 extends StatefulWidget{
 
 class UserSettings1 extends State<StateUserSettings1>{
 
+  bool question = Home_Page.question;
+
   void PageRoute(String name) {
     Navigator.of(context).push(
         MaterialPageRoute(builder: (context){
@@ -28,8 +31,9 @@ class UserSettings1 extends State<StateUserSettings1>{
   @override
   Widget build(BuildContext context){
     return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
+      decoration: BoxDecoration(
+          color: question ? Colors.orange : null,
+          gradient: question ? null : LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors:[Colors.white,Color(0xFFFAAC90)],

@@ -28,6 +28,7 @@ class SettingAllergy extends State<StateSettingAllergy>{
   AllObligationData aod = AllObligationData();
   AllRecommendationData ard = AllRecommendationData();
   AllAnotherData aad = AllAnotherData();
+  bool question = Home_Page.question;
 
   double _value = 0.0;
   bool isLoading = false;
@@ -60,12 +61,13 @@ class SettingAllergy extends State<StateSettingAllergy>{
       alignment: Alignment.center,
       children: [
         Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
+          decoration: BoxDecoration(
+              color: question ? Colors.orange : null,
+              gradient: question ? null : LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors:[Colors.white,Color(0xFFFAAC90)],
-            )
+              )
           ),
           child:Scaffold(
             backgroundColor: Colors.transparent,

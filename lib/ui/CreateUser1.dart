@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../DB/User.dart';
 
+import '../main.dart';
 import '../ui/CreateUser2.dart';
 import '../Data/AllUserData.dart';
 import '../Data/AllObligationData.dart';
@@ -25,16 +26,18 @@ class CreateUser1_Page extends State<StateCreateUser1>{
   AllObligationData aod = AllObligationData();
   AllRecommendationData ard = AllRecommendationData();
   AllAnotherData aad = AllAnotherData();
+  bool question = Home_Page.question;
 
   @override
   Widget build(BuildContext context){
     return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors:[Colors.white,Color(0xFF90D4FA)],
-        )
+      decoration: BoxDecoration(
+          color: question ? Colors.indigo : null,
+          gradient: question ? null : LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors:[Colors.white,Color(0xFF90D4FA)],
+          )
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,

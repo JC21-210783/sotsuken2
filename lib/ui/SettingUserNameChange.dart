@@ -3,6 +3,7 @@ import 'dart:async';
 
 import '../DB/User.dart';
 
+import '../main.dart';
 import '../component/AppbarComp.dart';
 import '../component/LoadingIndicator.dart';
 
@@ -19,6 +20,7 @@ class StateSettingUserNameChange extends StatefulWidget{
 class SettingUserNameChange extends State<StateSettingUserNameChange>{
   String afterName = "";
   String ErrorMessage = "";
+  bool question = Home_Page.question;
 
   double _value = 0.0;
   bool isLoading = false;
@@ -51,12 +53,13 @@ class SettingUserNameChange extends State<StateSettingUserNameChange>{
       alignment: Alignment.center,
       children: [
         Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors:[Colors.white,Color(0xFFFAAC90)],
-            )
+          decoration: BoxDecoration(
+              color: question ? Colors.orange : null,
+              gradient: question ? null : LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors:[Colors.white,Color(0xFFFAAC90)],
+              )
           ),
           child:Scaffold(
             backgroundColor: Colors.transparent,

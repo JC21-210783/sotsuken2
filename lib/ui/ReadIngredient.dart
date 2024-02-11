@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../main.dart';
 import '../component/AppbarComp.dart';
 import '../component/BottomNavbarComp.dart';
 
@@ -15,6 +16,7 @@ class ReadIngredient extends StatefulWidget {
 class _ReadIngredientState extends State<ReadIngredient> {
   List<String> vals = ["読み込み中"];
   bool _isInitialized = false;
+  bool question = Home_Page.question;
 
   @override
   void initState() {
@@ -41,12 +43,13 @@ class _ReadIngredientState extends State<ReadIngredient> {
   @override
   Widget build(BuildContext context) {
     return  Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
+      decoration: BoxDecoration(
+          color: question ? Colors.indigo : null,
+          gradient: question ? null : LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors:[Colors.white,Color(0xFF90D4FA)],
-        )
+          )
       ),
       child:Scaffold(
         backgroundColor: Colors.transparent,

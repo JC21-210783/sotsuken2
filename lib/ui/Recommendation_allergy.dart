@@ -3,6 +3,7 @@ import 'dart:async';
 
 import '../DB/Add.dart';
 
+import '../main.dart';
 import '../ui/Another_ingredient.dart';
 import '../ui/ImageLoaderSelect.dart';
 import '../Data/AllObligationData.dart';
@@ -28,6 +29,7 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
   AllObligationData aod = AllObligationData();
   AllRecommendationData ard = AllRecommendationData();
   AllAnotherData aad = AllAnotherData();
+  bool question = Home_Page.question;
 
   double _value = 0.0;
   bool isLoading = false;
@@ -61,12 +63,13 @@ class Recommendation_allergy extends State<StateRecommendation_allergy> {
       alignment: Alignment.center,
       children: [
         Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
+          decoration: BoxDecoration(
+              color: question ? Colors.indigo : null,
+              gradient: question ? null : LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors:[Colors.white,Color(0xFF90D4FA)],
-            )
+              )
           ),
           child:Scaffold(
             backgroundColor: Colors.transparent,

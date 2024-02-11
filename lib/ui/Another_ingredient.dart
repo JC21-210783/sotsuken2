@@ -30,6 +30,7 @@ class Another_ingredient extends State<StateAnother_ingredient>{
   AllRecommendationData ard = AllRecommendationData();
   AllAnotherData aad = AllAnotherData();
   DBadd dbAdd = DBadd();//DBクラスのインスタンス生成
+  bool question = Home_Page.question;
 
   double _value = 0.0;
   bool isLoading = false;
@@ -75,12 +76,13 @@ class Another_ingredient extends State<StateAnother_ingredient>{
       alignment: Alignment.center,
       children: [
         Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
+          decoration: BoxDecoration(
+              color: question ? Colors.indigo : null,
+              gradient: question ? null : LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors:[Colors.white,Color(0xFF90D4FA)],
-            )
+              )
           ),
           child:Scaffold(
             backgroundColor: Colors.transparent,
@@ -143,8 +145,8 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                             if(widget.PageFlag == 'Manual')...[
                               Container(
                                 margin:EdgeInsets.fromLTRB(0, 0, 0, 5),
-                                child:const FittedBox(
-                                  child:Text('※成分名長押しで詳細を確認できます',style:TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
+                                child: FittedBox(
+                                  child:Text('※成分名長押しで詳細を確認できます',style:TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: question ? Colors.white : null)),
                                 ),
                               ),
                             ],
@@ -161,8 +163,8 @@ class Another_ingredient extends State<StateAnother_ingredient>{
                                 if(DBadd.AddList.isEmpty)...[
                                   Container(
                                     margin: const EdgeInsets.all(30),
-                                    child:const FittedBox(
-                                      child:Text('何も登録されていません',style: TextStyle(fontSize: 25),),
+                                    child: FittedBox(
+                                      child:Text('何も登録されていません',style: TextStyle(fontSize: 25,color: question ? Colors.white : null),),
                                     ),
                                   ),
                                 ]else...[

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import '../main.dart';
+
 import '../Data/AllAnotherData.dart';
 import '../Data/AllObligationData.dart';
 import '../Data/AllRecommendationData.dart';
@@ -25,6 +27,7 @@ class CreateUserCheck extends State<StateCreateUserCheck>{
   AllObligationData aod = AllObligationData();
   AllRecommendationData ard = AllRecommendationData();
   AllAnotherData aad = AllAnotherData();
+  bool question = Home_Page.question;
 
   double _value = 0.0;
   bool isLoading = false;
@@ -56,12 +59,13 @@ class CreateUserCheck extends State<StateCreateUserCheck>{
       alignment: Alignment.center,
       children: [
         Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
+          decoration: BoxDecoration(
+              color: question ? Colors.indigo : null,
+              gradient: question ? null : LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors:[Colors.white,Color(0xFF90D4FA)],
-            )
+              )
           ),
           child: Scaffold(
             backgroundColor:Colors.transparent,
