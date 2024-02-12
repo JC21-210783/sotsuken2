@@ -60,7 +60,7 @@ class NicochanEvent extends State<StateNicochanEvent> {
           if(widget.nicounter != 0)...[
             GestureDetector(
               onTap: (){
-                if(widget.nicounter < 30){
+                if(widget.nicounter < 50){
                   setState(() {
                     nicounter = widget.nicounter + 1;
                   });

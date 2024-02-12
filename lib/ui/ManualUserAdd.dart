@@ -7,7 +7,13 @@ class ManualUserAdd_Page extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: const  Text('ご利用方法について'),
+        title: const  Text('ご利用方法'),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20)
+            )
+        ),
       ),
       body: Center(
         child:SingleChildScrollView(
@@ -44,7 +50,11 @@ class ManualUserAdd_Page extends StatelessWidget{
                   margin: const EdgeInsets.fromLTRB(10, 20, 10, 40),
                   child:ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepOrange
+                        backgroundColor: Colors.deepOrange,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)
+                        ),
+                        elevation: 7
                     ),
                     onPressed: (){
                       Navigator.pop(context);

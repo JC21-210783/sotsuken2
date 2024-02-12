@@ -11,7 +11,13 @@ class Manual_Page extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: const  Text('ご利用方法について'),
+        title: const  Text('ご利用方法'),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20)
+            )
+        ),
       ),
       body: Center(
         child:SingleChildScrollView(
@@ -158,11 +164,13 @@ class Manual_Page extends StatelessWidget{
                 width:300,
                 height:50,
                 margin: const EdgeInsets.fromLTRB(10,0,10,10),
-                child:OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    side: const BorderSide(
-                      color: Colors.deepOrange
-                    ),
+                child:ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.deepOrange,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)
+                      ),
+                      elevation: 7
                   ),
                   onPressed: (){
                     Navigator.of(context).push(
@@ -172,7 +180,7 @@ class Manual_Page extends StatelessWidget{
                     );
                   },
                   child: const FittedBox(
-                     child:Text('追加成分の登録について',style: TextStyle(color:Colors.deepOrange,fontSize: 23,fontWeight: FontWeight.bold),)
+                     child:Text('追加成分の登録について',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),)
                   ),
                 )
               ),
@@ -180,11 +188,13 @@ class Manual_Page extends StatelessWidget{
                   width:300,
                   height:50,
                   margin: const EdgeInsets.all(10),
-                  child:OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        side: const BorderSide(
-                            color: Colors.deepOrange
-                        ),
+                  child:ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.deepOrange,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)
+                          ),
+                          elevation: 7
                       ),
                       onPressed: (){
                         Navigator.of(context).push(
@@ -194,7 +204,7 @@ class Manual_Page extends StatelessWidget{
                         );
                       },
                       child: const FittedBox(
-                          child:Text('ユーザーの登録について',style: TextStyle(color:Colors.deepOrange,fontSize: 23,fontWeight: FontWeight.bold),)
+                          child:Text('ユーザーの登録について',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),)
                       ),
                   )
               ),
@@ -202,11 +212,13 @@ class Manual_Page extends StatelessWidget{
                   width:300,
                   height:50,
                   margin: const EdgeInsets.all(10),
-                  child:OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        side: const BorderSide(
-                            color: Colors.deepOrange
-                        ),
+                  child:ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.deepOrange,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)
+                          ),
+                          elevation: 7
                       ),
                       onPressed: (){
                         Navigator.of(context).push(
@@ -216,7 +228,7 @@ class Manual_Page extends StatelessWidget{
                         );
                       },
                       child:const FittedBox(
-                          child: Text('登録内容の変更について',style: TextStyle(color:Colors.deepOrange,fontSize: 23,fontWeight: FontWeight.bold),)
+                          child: Text('登録内容の変更について',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),)
                       ),
                   )
               ),
@@ -224,11 +236,13 @@ class Manual_Page extends StatelessWidget{
                   width:300,
                   height:50,
                   margin: const EdgeInsets.fromLTRB(10,10,10,50),
-                  child:OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        side: const BorderSide(
-                            color: Colors.deepOrange
-                        ),
+                  child:ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.deepOrange,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)
+                          ),
+                          elevation: 7
                       ),
                       onPressed: (){
                         Navigator.of(context).push(
@@ -238,7 +252,7 @@ class Manual_Page extends StatelessWidget{
                         );
                       },
                       child:const FittedBox(
-                          child: Text('ユーザーの削除について',style: TextStyle(color:Colors.deepOrange,fontSize: 23,fontWeight: FontWeight.bold),)
+                          child: Text('ユーザーの削除について',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),)
                       ),
                   )
               ),
