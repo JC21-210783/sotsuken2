@@ -311,148 +311,160 @@ class Manual_Page extends StatelessWidget{
                           ),
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                              width:150,
-                              height:140,
-                              margin: const EdgeInsets.fromLTRB(10,0,10,10),
-                              child:ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.deepOrange,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15)
+                      FittedBox(
+                        child:Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                                width:140,
+                                height:130,
+                                margin: const EdgeInsets.fromLTRB(10,0,10,10),
+                                child:ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.deepOrange,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(15)
+                                      ),
+                                      elevation: 7
+                                  ),
+                                  onPressed: (){
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context){
+                                          return ManualAnotherAdd_Page();
+                                        })
+                                    );
+                                  },
+                                  child: const FittedBox(
+                                    child:Column(
+                                      children: [
+                                        Icon(
+                                          Icons.post_add,
+                                          color: Colors.white,
+                                          size:60,
+                                        ),
+                                        FittedBox(
+                                            child:Text('追加成分の\n登録について',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),)
+                                        ),
+                                      ],
                                     ),
-                                    elevation: 7
-                                ),
-                                onPressed: (){
-                                  Navigator.of(context).push(
-                                      MaterialPageRoute(builder: (context){
-                                        return ManualAnotherAdd_Page();
-                                      })
-                                  );
-                                },
-                                child: const Column(
-                                  children: [
-                                    Icon(
-                                      Icons.post_add,
-                                      color: Colors.white,
-                                      size:70,
+                                  ),
+                                )
+                            ),
+                            Container(
+                                width:140,
+                                height:130,
+                                margin: const EdgeInsets.fromLTRB(10,0,10,10),
+                                child:ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.deepOrange,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(15)
+                                      ),
+                                      elevation: 7
+                                  ),
+                                  onPressed: (){
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context){
+                                          return ManualUserAdd_Page();
+                                        })
+                                    );
+                                  },
+                                  child: const FittedBox(
+                                    child: Column(
+                                      children: [
+                                        Icon(
+                                          Icons.person_add,
+                                          color: Colors.white,
+                                          size:60,
+                                        ),
+                                        FittedBox(
+                                            child:Text('ユーザーの\n登録について',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),)
+                                        ),
+                                      ],
                                     ),
-                                    FittedBox(
-                                        child:Text('追加成分の\n登録について',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),)
-                                    ),
-                                  ],
-                                ),
-                              )
-                          ),
-                          Container(
-                              width:150,
-                              height:140,
-                              margin: const EdgeInsets.fromLTRB(10,0,10,10),
-                              child:ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.deepOrange,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15)
-                                    ),
-                                    elevation: 7
-                                ),
-                                onPressed: (){
-                                  Navigator.of(context).push(
-                                      MaterialPageRoute(builder: (context){
-                                        return ManualUserAdd_Page();
-                                      })
-                                  );
-                                },
-                                child: const Column(
-                                  children: [
-                                    Icon(
-                                      Icons.person_add,
-                                      color: Colors.white,
-                                      size:70,
-                                    ),
-                                    FittedBox(
-                                        child:Text('ユーザーの\n登録について',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),)
-                                    ),
-                                  ],
-                                ),
-                              )
-                          ),
-                        ],
+                                  ),
+                                )
+                            ),
+                          ],
+                        ),
                       ),
 
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                              width:150,
-                              height:140,
-                              margin: const EdgeInsets.fromLTRB(10,10,10,25),
-                              child:ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.deepOrange,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15)
+                      FittedBox(
+                        child:Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                                width:140,
+                                height:130,
+                                margin: const EdgeInsets.fromLTRB(10,10,10,25),
+                                child:ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.deepOrange,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(15)
+                                      ),
+                                      elevation: 7
+                                  ),
+                                  onPressed: (){
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context){
+                                          return ManualAddChange_Page();
+                                        })
+                                    );
+                                  },
+                                  child: const FittedBox(
+                                    child:Column(
+                                      children: [
+                                        Icon(
+                                          Icons.edit_document,
+                                          color: Colors.white,
+                                          size:60,
+                                        ),
+                                        FittedBox(
+                                            child:Text('登録内容の\n変更について',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),)
+                                        ),
+                                      ],
                                     ),
-                                    elevation: 7
-                                ),
-                                onPressed: (){
-                                  Navigator.of(context).push(
-                                      MaterialPageRoute(builder: (context){
-                                        return ManualAddChange_Page();
-                                      })
-                                  );
-                                },
-                                child: const Column(
-                                  children: [
-                                    Icon(
-                                      Icons.mode_edit,
-                                      color: Colors.white,
-                                      size:70,
+                                  ),
+                                )
+                            ),
+                            Container(
+                                width:140,
+                                height:130,
+                                margin: const EdgeInsets.fromLTRB(10,10,10,25),
+                                child:ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.deepOrange,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(15)
+                                      ),
+                                      elevation: 7
+                                  ),
+                                  onPressed: (){
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context){
+                                          return ManualDeleteUser_Page();
+                                        })
+                                    );
+                                  },
+                                  child: const FittedBox(
+                                    child:Column(
+                                      children: [
+                                        Icon(
+                                          Icons.person_remove,
+                                          color: Colors.white,
+                                          size:60,
+                                        ),
+                                        FittedBox(
+                                            child:Text('ユーザーの\n削除について',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),)
+                                        ),
+                                      ],
                                     ),
-                                    FittedBox(
-                                        child:Text('登録内容の\n変更について',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),)
-                                    ),
-                                  ],
-                                ),
-                              )
-                          ),
-                          Container(
-                              width:150,
-                              height:140,
-                              margin: const EdgeInsets.fromLTRB(10,10,10,25),
-                              child:ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.deepOrange,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15)
-                                    ),
-                                    elevation: 7
-                                ),
-                                onPressed: (){
-                                  Navigator.of(context).push(
-                                      MaterialPageRoute(builder: (context){
-                                        return ManualDeleteUser_Page();
-                                      })
-                                  );
-                                },
-                                child: const Column(
-                                  children: [
-                                    Icon(
-                                      Icons.person_remove,
-                                      color: Colors.white,
-                                      size:70,
-                                    ),
-                                    FittedBox(
-                                        child:Text('ユーザーの\n削除について',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),)
-                                    ),
-                                  ],
-                                ),
-                              )
-                          ),
-                        ],
+                                  ),
+                                )
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
