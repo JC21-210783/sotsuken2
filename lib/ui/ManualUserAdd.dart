@@ -37,12 +37,7 @@ class ManualUserAdd_Page extends StatelessWidget{
               ),
               Container(
                 margin:const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child:Image.asset('images/ManualUserAdd1.png'),
-              ),
-              Container(
-
-                margin:const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child:Image.asset('images/ManualUserAdd2.png'),
+                child:Image.asset('images/ManualUserAdd.png'),
               ),
               Container(
                   width: 200,

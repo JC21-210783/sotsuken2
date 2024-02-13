@@ -37,12 +37,7 @@ class ManualDeleteUser_Page extends StatelessWidget{
               ),
               Container(
                 margin:const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child:Image.asset('images/ManualDeleteUser1.png'),
-              ),
-              Container(
-
-                margin:const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child:Image.asset('images/ManualDeleteUser2.png'),
+                child:Image.asset('images/ManualDeleteUser.png'),
               ),
               Container(
                   width: 200,

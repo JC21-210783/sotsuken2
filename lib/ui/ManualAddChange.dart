@@ -37,12 +37,7 @@ class ManualAddChange_Page extends StatelessWidget{
               ),
               Container(
                 margin:const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child:Image.asset('images/ManualAddChange1.png'),
-              ),
-              Container(
-
-                margin:const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child:Image.asset('images/ManualAddChange2.png'),
+                child:Image.asset('images/ManualAddChange.png'),
               ),
               Container(
                   width: 200,

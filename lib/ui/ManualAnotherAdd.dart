@@ -37,15 +37,7 @@ class ManualAnotherAdd_Page extends StatelessWidget{
               ),
               Container(
                 margin:const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child:Image.asset('images/ManualAnotherAdd1.png'),
-              ),
-              Container(
-                margin:const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child:Image.asset('images/ManualAnotherAdd2.png'),
-              ),
-              Container(
-                margin:const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child:Image.asset('images/ManualAnotherAdd3.png'),
+                child:Image.asset('images/ManualAnotherAdd.png'),
               ),
               Container(
                 width: 200,
