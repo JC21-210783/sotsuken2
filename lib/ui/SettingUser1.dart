@@ -151,7 +151,7 @@ class UserSettings1 extends State<StateUserSettings1>{
                                             children: [
                                               if(DBuser.userName.isEmpty)...[
                                                 Container(
-                                                  margin:const EdgeInsets.fromLTRB(0, 40, 0, 20),
+                                                  margin:const EdgeInsets.fromLTRB(0, 45, 0, 20),
                                                   child:const FittedBox(
                                                     child:Center(
                                                       child:Text('ユーザーが\n登録されていません',
