@@ -70,22 +70,41 @@ class Manual_Page extends StatelessWidget{
                   ),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: const FittedBox(
-                  child: Text('-　-　-　-　-　-　-　-',style: TextStyle(color:Colors.deepOrange,fontWeight:FontWeight.bold,fontSize: 30),),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  for(int counter = 1 ; counter < 10 ; counter++)...[
+                    if(counter % 2 == 0)...[
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                        height: 20, width: 20,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ]else...[
+                      Container(
+                        height: 14, width: 14,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ],
+                  ],
+                ],
               ),
               ConstrainedBox(
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   maxWidth: 400
                 ),
                 child:Container(
-                  margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
+                  margin: const EdgeInsets.fromLTRB(10, 20, 10, 20),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                             color:Colors.black12,
                             blurRadius: 2,
@@ -95,7 +114,8 @@ class Manual_Page extends StatelessWidget{
                       ]
                   ),
                   child: Container(
-                    margin: EdgeInsets.fromLTRB(15, 10, 15, 10),
+                    margin: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                    padding: const EdgeInsets.fromLTRB(5, 15, 5, 15),
                     child: const FittedBox(
                       child:Text(
                         ' 本製品をご利用いただき、\nありがとうございます。'
@@ -112,25 +132,42 @@ class Manual_Page extends StatelessWidget{
                   ),
                 ),
               ),
-
-
-              Container(
-                margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: const FittedBox(
-                  child: Text('-　-　-　-　-　-　-　-',style: TextStyle(color:Colors.deepOrange,fontWeight:FontWeight.bold,fontSize: 30),),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  for(int counter = 1 ; counter < 10 ; counter++)...[
+                    if(counter % 2 == 0)...[
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                        height: 20, width: 20,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ]else...[
+                      Container(
+                        height: 14, width: 14,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ],
+                  ],
+                ],
               ),
               ConstrainedBox(
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                     maxWidth: 400
                 ),
                 child: Container(
-                    margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
+                    margin: const EdgeInsets.fromLTRB(10, 20, 10, 20),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
+                        boxShadow: const [
+                           BoxShadow(
                               color:Colors.black12,
                               blurRadius: 2,
                               spreadRadius: 2,
@@ -212,24 +249,41 @@ class Manual_Page extends StatelessWidget{
                     )
                 ),
               ),
-
-
-              Container(
-                margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: const FittedBox(
-                  child: Text('-　-　-　-　-　-　-　-',style: TextStyle(color:Colors.deepOrange,fontWeight:FontWeight.bold,fontSize: 30),),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  for(int counter = 1 ; counter < 10 ; counter++)...[
+                    if(counter % 2 == 0)...[
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                        height: 20, width: 20,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ]else...[
+                      Container(
+                        height: 14, width: 14,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ],
+                  ],
+                ],
               ),
               ConstrainedBox(
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                     maxWidth: 400
                 ),
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(10, 20, 10, 30),
+                  margin: const EdgeInsets.fromLTRB(10, 20, 10, 30),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
+                      boxShadow: const  [
                         BoxShadow(
                             color:Colors.black12,
                             blurRadius: 2,
