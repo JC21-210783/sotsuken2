@@ -138,7 +138,7 @@ class CreateUserCheck extends State<StateCreateUserCheck>{
                                     Text('・$obligation',
                                       style:const TextStyle(
                                         height: 1.5,
-                                        fontSize:25,
+                                        fontSize:23,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -180,7 +180,7 @@ class CreateUserCheck extends State<StateCreateUserCheck>{
                                     Text('・$recommendation',
                                       style:const TextStyle(
                                         height: 1.5,
-                                        fontSize:25,
+                                        fontSize:23,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -223,7 +223,7 @@ class CreateUserCheck extends State<StateCreateUserCheck>{
                                     Text('・$another',
                                       style:const TextStyle(
                                         height: 1.5,
-                                        fontSize:25,
+                                        fontSize:23,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),

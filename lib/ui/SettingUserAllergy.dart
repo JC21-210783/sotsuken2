@@ -190,14 +190,13 @@ class SettingAllergy extends State<StateSettingAllergy>{
                                         Text('・$gim',
                                           style:const TextStyle(
                                             height: 1.5,
-                                            fontSize:25,
+                                            fontSize:23,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                       ]
                                     ],
                                   ),
-                                  //テキスト表示させるやつがいる
                                 ),
                               ],
 
@@ -233,7 +232,7 @@ class SettingAllergy extends State<StateSettingAllergy>{
                                         Text('・$sui',
                                           style:const TextStyle(
                                             height: 1.5,
-                                            fontSize:25,
+                                            fontSize:23,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -267,7 +266,6 @@ class SettingAllergy extends State<StateSettingAllergy>{
                                       borderRadius: BorderRadius.circular(5),
                                       border:Border.all(color:Colors.amber,width:1)
                                   ),
-                                  //テキスト表示させるやつがいる↓
                                   child:Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
@@ -275,7 +273,7 @@ class SettingAllergy extends State<StateSettingAllergy>{
                                         Text('・$another',
                                           style:const TextStyle(
                                             height: 1.5,
-                                            fontSize:25,
+                                            fontSize:23,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
