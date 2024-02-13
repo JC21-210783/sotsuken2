@@ -94,7 +94,7 @@ class ChooseUser_Page extends State<StateChooseUser>{
                   end: Alignment.bottomRight,
                   colors:[Colors.indigo.shade300,Colors.indigo],
                 ) :
-                LinearGradient(
+                const LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors:[Colors.white,Color(0xFF90D4FA)],
@@ -225,9 +225,8 @@ class ChooseUser_Page extends State<StateChooseUser>{
                                                     height: 47,
                                                     margin: const EdgeInsets.all(2),
                                                     child: OutlinedButton(
-                                                      child:Text(n,style: const TextStyle(fontSize: 25),),
+                                                      child:Text(n,style: const TextStyle(fontSize: 25,color: Colors.indigo),),
                                                       onPressed: () {
-                                                        print("選択されたユーザ$n");
                                                         verifications.instance.selectName(n);
                                                         Navigator.of(context).push(
                                                             MaterialPageRoute(builder: (context){
