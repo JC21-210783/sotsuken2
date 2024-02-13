@@ -59,7 +59,7 @@ class Manual_Page extends StatelessWidget{
                             TextSpan(
                               text:'ご利用方法',
                               style: TextStyle(
-                                  fontSize: 27,
+                                  fontSize: 25,
                                   color:Colors.deepOrange,
                                   fontWeight: FontWeight.bold
                               ),
