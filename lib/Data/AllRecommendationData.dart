@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sotsuken2/ui/Obligation_allergy.dart';
 
-import '../DB/Database.dart';
-import 'AllUserData.dart';
-
+import '../DB/Food.dart';
+import '../DB/List.dart';
 
 class AllRecommendationData{
 
@@ -11,7 +9,6 @@ class AllRecommendationData{
   static List<String> valueList2 = ["あわび","いか","オレンジ","いくら","牛肉","ごま","さけ", "さば","大豆","鶏肉",
     "バナナ","豚肉","まつたけ","もも","やまいも","りんご","ゼラチン","アーモンド","カシューナッツ","キウイフルーツ"];
   static List<String> valueCheck2 = [];
-  static String hRecommendation = "";
 
   //みちるちゃんの
   static Map<String, String> Sui = {"SA1":"アーモンド", "SB1":"あわび", "SC1":"いか", "SD1":"いくら", "SE1":"カシューナッツ", "SF1":"オレンジ", "SG2":"キウイフルーツ", "SH2":"牛肉","SI1":"ごま","SJ1":"さけ","SK1":"さば","SL2":"大豆","SM2":"鶏肉","SN1":"バナナ","SO2":"豚肉","SP1":"まつたけ","SQ1":"もも","SR1":"やまいも","SS1":"りんご","ST1":"ゼラチン",};
@@ -29,7 +26,7 @@ class AllRecommendationData{
     return valueList2;
   }
 
-  List<bool> getBool(){
+  List<bool> getBool2(){
     return boolList2;
   }
 
@@ -54,43 +51,59 @@ class AllRecommendationData{
     return valueCheck2;
   }
 
-  String getValueCheckString2(){
-    hRecommendation = "";
-    for(int x = 0;x < valueCheck2.length; x++){
-      if(x == 0 || x == valueCheck2.length){
-        hRecommendation = '$hRecommendation${valueCheck2[x]}';
-      }else{
-        hRecommendation = '$hRecommendation\n${valueCheck2[x]}';
-      }
-    }
-    debugPrint(hRecommendation);
-    return hRecommendation;
+  void setValueCheck2(List<String> dbValue){
+    valueCheck2 =  dbValue;
+  }
+
+  void valueCheckClear2(){
+    valueCheck2.clear();
   }
 
   void AllResetRecommendation(){
     boolList2 =  List.filled(20, false);
     valueCheck2 = [];
-    hRecommendation = "";
   }
 
+  void valueChangeBool2(){
+    int count = 0;
+    for(String value in DBfood.Suilist){
+      while(true){
+        if(valueList2[count] == value){
+          boolList2[count] = true;
+          count++;
+          break;
+        }else{
+          boolList2[count] = false;
+        }
+        count++;
+      }
+    }
+  }
+
+  DBfood dbFood = DBfood();//DBクラスのインスタンス生成
+  DBlist dbList = DBlist();//DBクラスのインスタンス生成
+  //追加した処理12/21
   //みちるちゃんの
-  void insertHanteiObligation2() async {
+  void insertHanteiRecommendation(String username) async {
     debugPrint('insertHanteiObligationに来ました');
-    final dbProvider = DBProvider.instance;
     CheckValue2.clear();//foodidのクリア
-    CheckValue2 = getValueCheck2();
-    for (int x = 0; x < CheckValue2.length; x++) {
+    foodid2.clear();//追加した処理12/21
+    debugPrint('valueCheck2を使用します：$valueCheck2');
+    for (int x = 0; x < valueCheck2.length; x++) {
       Sui.forEach((key, value) { //foodidのみを出力
-        if (value == CheckValue2[x]) { //もしSuiリストのfoodNameとCheckValueのfoodNameが一致したら
+        if (value == valueCheck2[x]) { //もしSuiリストのfoodNameとCheckValueのfoodNameが一致したら
           foodid2.add(key as String); // foodidリストにSuiリストのfoodidを格納
         }
       });
     }
-    final int userid = await dbProvider.selectUserId(AllUserData.sUserName);// ユーザーIDを非同期で取得
+    debugPrint('最終的なfoodid2の内容:$foodid2');
+    final int userid = await dbList.selectUserId(username);// ユーザーIDを非同期で取得
+    debugPrint('useridの内容:$userid');
     for (int x = 0; x < foodid2.length; x++) {
-      final result2 = await dbProvider.insertfood2(userid, foodid2[x]);// ここでDBにuseridとCheckKeyを渡す（insert）
-      debugPrint('insert処理した内容:$result2');
+      final result2 = await dbFood.insertfood2(userid, foodid2[x]);// ここでDBにuseridとCheckKeyを渡す（insert）
+      debugPrint('foodid2の内容だよ2:$foodid2');
     }
+    debugPrint('最終的なfoodid2の内容だよ2:$foodid2');
     debugPrint(CheckValue2.toString());
   }
 }
