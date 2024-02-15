@@ -51,22 +51,24 @@ class verifications{
 
         //addidをもとにname
         for (Map<String, dynamic?> ADD in addid) {
+          print("処理する");
           ADD.forEach((key, value) async {
-            for (int x = 0; x < ADD.length; x++) {
-              final addId2 = await db.rawQuery('SELECT hiragana,kanji,eigo,otherName FROM k_add where addid = ?', [value]);
-              debugPrint('addId2の内容：$addId2');
-              for (Map<String, dynamic?> value2 in addId2) {
-                value2.forEach((key, value) {
-                  addNameValue.add(value as String);
-                  debugPrint('addNameValueの内容：$addNameValue');
+            print("処理");
+            final addId2 = await db.rawQuery('SELECT hiragana,kanji,eigo,otherName FROM k_add where addid = ?', [value]);
+            debugPrint('addId2の内容：$addId2');
+            for (Map<String, dynamic?> value2 in addId2) {
+              value2.forEach((key, value) {
+                addNameValue.add(value as String);
+                debugPrint('addNameValueの内容：$addNameValue');
 
-                  select.addAll(addNameValue);
-                  print("リストの追加成分結合した結果：$select");
-                });
-              }
+                select.addAll(addNameValue);
+                print("リストの追加成分結合した結果：$select");
+              });
             }
           });
         }
+
+
       }else{
         select = await AllObligationData().getValueCheck();
         select.addAll(await AllRecommendationData().getValueCheck2());
@@ -84,7 +86,6 @@ class verifications{
       print("これからユーザ検証");
       if((DBuser.userId.contains(userid))){
         print("ユーザ居た");
-
 
         //useridに紐づくbeautyidをセレクト
         final beautyid = await db.rawQuery('SELECT beautyid FROM list where userid2 = ?', [userid]);
@@ -108,6 +109,7 @@ class verifications{
     }
 
     //文字認識結果格納変数
+    await Future.delayed(Duration(seconds: 1));
     List<String> resultvalues = await Api.instance.getContentList();
 
     print("verificationのresultvalues：$resultvalues");
@@ -138,14 +140,20 @@ class verifications{
 
       List<String> selectVal = [];
 
-      //追加成分
+      print("現状のresult：$result");
       for (int i = 0; i < result.length; i++) {
+
         //Foodだったら
         if(Home_Page.flagCategory == 'food'){
           final selHiraQuery = await db.rawQuery('''SELECT hiragana FROM k_add WHERE hiragana = ? OR kanji = ? OR eigo = ? OR otherName = ?''', [result[i], result[i], result[i], result[i]]);
+          print(selHiraQuery);
+
+          //追加成分
           for (Map<String, dynamic> row in selHiraQuery) {
+            print("if前selectVal$selectVal");
             if (!selectVal.contains(row['hiragana'].toString())) {
               selectVal.add(row['hiragana'].toString());
+              print("if入ったselectVal$selectVal");
             }
           }
           final foodName = result[i];
@@ -164,6 +172,8 @@ class verifications{
             if (targetId.contains(selId)) { // targetId に selId が含まれているか確認
               resultVal.add(foodName);
             }
+
+            resultVal.addAll(selectVal);
             print("現状のresultfood$resultVal");
           }
         //Beautyだったら

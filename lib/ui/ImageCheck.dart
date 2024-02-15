@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../main.dart';
 import '../component/AppbarComp.dart';
 import '../component/BottomNavbarComp.dart';
 import '../ui/AllergyNotDetection.dart';
@@ -26,26 +25,19 @@ class _ImageCheckState extends State<ImageCheck> {
   String state = "トリミング";
   XFile? cropimage;
   Image? imagepath;
-  bool question = Home_Page.question;
 
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.center,
       children: [
         Container(
-          decoration: BoxDecoration(
-              gradient: question ?
-              LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors:[Colors.indigo.shade300,Colors.indigo],
-              ) :
-              LinearGradient(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors:[Colors.white,Color(0xFF90D4FA)],
-              )
-          ),
+              ),
+            )
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
@@ -195,12 +187,36 @@ class _ImageCheckState extends State<ImageCheck> {
                             Container(
                               width: 100,
                               height: 50,
-                              margin: const EdgeInsets.fromLTRB(20, 5, 10, 15),
+                              margin: EdgeInsets.fromLTRB(7, 5, 20, 15),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.blue[400],
                                     shape:RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15)
+                                        borderRadius: BorderRadius.circular(20)
+                                    ) ,
+                                    elevation: 7
+                                ),
+                                child: const Text(
+                                  'いいえ',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                onPressed: () async {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ),
+                            Container(
+                              width: 100,
+                              height: 50,
+                              margin: EdgeInsets.fromLTRB(7, 5, 20, 15),
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.orange[700],
+                                    shape:RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20)
                                     ) ,
                                     elevation: 7
                                 ),
@@ -262,30 +278,6 @@ class _ImageCheckState extends State<ImageCheck> {
                                 },
                               ),
                             ),
-                            Container(
-                              width: 100,
-                              height: 50,
-                              margin: const EdgeInsets.fromLTRB(10, 5, 20, 15),
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.orange[700],
-                                    shape:RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15)
-                                    ) ,
-                                    elevation: 7
-                                ),
-                                child: const Text(
-                                  'いいえ',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                onPressed: () async {
-                                  Navigator.pop(context);
-                                },
-                              ),
-                            ),
                           ],
                         )
                       ],
@@ -315,7 +307,7 @@ class _ImageCheckState extends State<ImageCheck> {
                   const SizedBox(
                     width:70,
                     height: 70,
-                      child:CircularProgressIndicator(strokeWidth: 7),
+                    child:CircularProgressIndicator(strokeWidth: 7),
                   ),
                 ],
               ),

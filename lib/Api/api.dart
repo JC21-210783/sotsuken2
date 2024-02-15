@@ -58,15 +58,6 @@ class Api{
         genStr = matchGen.group(1)!.trim();
         debugPrint("原材料後2：$genStr");
       }
-    } else if(contentMoji.contains("成分")){
-      RegExp biyo = RegExp(r"成分: *(.*)");
-      RegExpMatch? matchbiyo = biyo.firstMatch(contentMoji);
-      debugPrint("マッチしたか3:$matchbiyo");
-
-      if (matchbiyo != null){
-        genStr = matchbiyo.group(1)!.trim();
-        debugPrint("成分後：$genStr");
-      }
     }else{
       print("どちらでもない");
       genStr = contentMoji;
@@ -80,9 +71,7 @@ class Api{
       contentList = genStr.split('、');
     }else if(genStr.contains('·')){
       contentList = genStr.split('·');
-    }else if(genStr.contains(',')){
-      contentList = genStr.split(',');
-    } else if(genStr.contains('/')){
+    }else if(genStr.contains('/')){
       contentList = genStr.split('/');
     }else{
       contentList[0] = genStr;
